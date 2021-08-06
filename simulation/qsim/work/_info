@@ -1,0 +1,293 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/GitHub/Despertador_AHDL/Digital_Radio_Interface/simulation/qsim
+Econtador
+Z1 w1628210647
+Z2 DPx10 cycloneive 20 cycloneive_atom_pack 0 22 76OUjOFMM1Jzd<9936DA;3
+Z3 DPx10 cycloneive 21 cycloneive_components 0 22 dANj__M<MaN@;H9Tkm=iP1
+Z4 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z5 DPx6 altera 11 dffeas_pack 0 22 H5F:RRfLz82T3`4>@b7mS3
+Z6 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z7 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z8 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+Z9 DPx6 altera 28 altera_primitives_components 0 22 VSD=32;3391kSOd?PDZYj3
+!i122 24
+R0
+Z10 8Digital_Radio_Interface.vho
+Z11 FDigital_Radio_Interface.vho
+l0
+Z12 L37 1
+Vj:cKZaJoH;KZUlzOShIH23
+!s100 :fiYbm8fWJXz1HO104jNE2
+Z13 OV;C;2020.1;71
+32
+!s110 1628210648
+!i10b 1
+Z14 !s108 1628210648.000000
+Z15 !s90 -work|work|Digital_Radio_Interface.vho|
+Z16 !s107 Digital_Radio_Interface.vho|
+!i113 1
+Z17 o-work work
+Z18 tExplicit 1 CvgOpt 0
+Astructure
+R2
+R3
+R4
+R5
+R6
+R7
+R8
+R9
+DEx4 work 8 contador 0 22 j:cKZaJoH;KZUlzOShIH23
+!i122 24
+l2893
+L47 39521
+Vn=RhAYkf>9_RjEk_aIAE23
+!s100 7C9R`77EdC:@7zOC2ckKd1
+R13
+32
+Z19 !s110 1628210649
+!i10b 1
+R14
+R15
+R16
+!i113 1
+R17
+R18
+Econtador_vhd_vec_tst
+Z20 w1628210646
+R7
+R8
+!i122 25
+R0
+Z21 8Waveform4.vwf.vht
+Z22 FWaveform4.vwf.vht
+l0
+Z23 L32 1
+VdlY?7K2]@onfaD9j9@zo:2
+!s100 3E>Znb`[6LD<SCQMT6[8<3
+R13
+32
+R19
+!i10b 1
+Z24 !s108 1628210649.000000
+Z25 !s90 -work|work|Waveform4.vwf.vht|
+Z26 !s107 Waveform4.vwf.vht|
+!i113 1
+R17
+R18
+Acontador_arch
+R7
+R8
+DEx4 work 20 contador_vhd_vec_tst 0 22 dlY?7K2]@onfaD9j9@zo:2
+!i122 25
+l51
+L34 91
+V4z<7h@jTXKmUlRMZ`LmNV3
+!s100 AcL51i2ZDj7I]imN3IN2l1
+R13
+32
+R19
+!i10b 1
+R24
+R25
+R26
+!i113 1
+R17
+R18
+Edigital_radio_interface
+Z27 w1628290192
+R2
+R3
+R4
+R5
+R6
+R7
+R8
+R9
+!i122 30
+R0
+R10
+R11
+l0
+R12
+V`G^h5T[KN<M;[XjDILjVk0
+!s100 nBS:R01R;7[A?=R[[Fb8F0
+R13
+32
+Z28 !s110 1628290193
+!i10b 1
+Z29 !s108 1628290193.000000
+R15
+R16
+!i113 1
+R17
+R18
+Astructure
+R2
+R3
+R4
+R5
+R6
+R7
+R8
+R9
+DEx4 work 23 digital_radio_interface 0 22 `G^h5T[KN<M;[XjDILjVk0
+!i122 30
+l2896
+L48 40070
+VA3C<?N12fAdZhE773zO^R1
+!s100 W@gNGdX7`GHnjiIV:9SOZ2
+R13
+32
+R28
+!i10b 1
+R29
+R15
+R16
+!i113 1
+R17
+R18
+Edigital_radio_interface_vhd_vec_tst
+Z30 w1628290191
+R7
+R8
+!i122 31
+R0
+Z31 8Waveform5.vwf.vht
+Z32 FWaveform5.vwf.vht
+l0
+R23
+Vh92GTdKoA=hgiJ`PVA<6;1
+!s100 f8d7mBg]Kkb81Sdfe>`3e0
+R13
+32
+Z33 !s110 1628290194
+!i10b 1
+Z34 !s108 1628290194.000000
+Z35 !s90 -work|work|Waveform5.vwf.vht|
+Z36 !s107 Waveform5.vwf.vht|
+!i113 1
+R17
+R18
+Adigital_radio_interface_arch
+R7
+R8
+Z37 DEx4 work 35 digital_radio_interface_vhd_vec_tst 0 22 h92GTdKoA=hgiJ`PVA<6;1
+!i122 31
+l53
+L34 96
+V5o0hSC3US^0CKZbm^n;aE2
+!s100 aS5Dfih:C1?OY^aE:HFL>1
+R13
+32
+R33
+!i10b 1
+R34
+R35
+R36
+!i113 1
+R17
+R18
+Edivisor_clock
+Z38 w1628204488
+R2
+R3
+R4
+R5
+R6
+R7
+R8
+R9
+!i122 12
+R0
+R10
+R11
+l0
+R12
+Vf6U1i38?E:_@Y:X>VI?D_3
+!s100 oGKRH17NhJ18f4zBfQM[]1
+R13
+32
+Z39 !s110 1628204489
+!i10b 1
+Z40 !s108 1628204489.000000
+R15
+R16
+!i113 1
+R17
+R18
+Astructure
+R2
+R3
+R4
+R5
+R6
+R7
+R8
+R9
+DEx4 work 13 divisor_clock 0 22 f6U1i38?E:_@Y:X>VI?D_3
+!i122 12
+l2510
+L44 34128
+VzCIo0NDEUJK1]Z=QWGLhJ1
+!s100 8:V995ziJPIF[hKRUnDAZ3
+R13
+32
+R39
+!i10b 1
+R40
+R15
+R16
+!i113 1
+R17
+R18
+Edivisor_clock_vhd_vec_tst
+Z41 w1628204487
+R7
+R8
+!i122 13
+R0
+Z42 8Waveform2.vwf.vht
+Z43 FWaveform2.vwf.vht
+l0
+R23
+VZFT_?H3C3;bKFT1Vg_2kN3
+!s100 9Jk`<ha<K4bPR<dA:W2gl2
+R13
+32
+R39
+!i10b 1
+R40
+Z44 !s90 -work|work|Waveform2.vwf.vht|
+Z45 !s107 Waveform2.vwf.vht|
+!i113 1
+R17
+R18
+Adivisor_clock_arch
+R7
+R8
+DEx4 work 25 divisor_clock_vhd_vec_tst 0 22 ZFT_?H3C3;bKFT1Vg_2kN3
+!i122 13
+l45
+L34 31
+V<E[O^FE0X6[=n8[WodGIR1
+!s100 _mL:;R2gWMaObARSTl]zg3
+R13
+32
+R39
+!i10b 1
+R40
+R44
+R45
+!i113 1
+R17
+R18

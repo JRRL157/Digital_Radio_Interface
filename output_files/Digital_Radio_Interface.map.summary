@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Thu Aug 05 19:07:56 2021
+Analysis & Synthesis Status : Successful - Fri Aug 06 19:38:07 2021
 Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 Revision Name : Digital_Radio_Interface
-Top-level Entity Name : tempo_pressionado
+Top-level Entity Name : Digital_Radio_Interface
 Family : Cyclone IV E
-Total logic elements : 42
-    Total combinational functions : 42
-    Dedicated logic registers : 32
-Total registers : 32
-Total pins : 5
+Total logic elements : 2,070
+    Total combinational functions : 2,070
+    Dedicated logic registers : 96
+Total registers : 96
+Total pins : 17
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

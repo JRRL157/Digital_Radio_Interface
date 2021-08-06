@@ -1,0 +1,13 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+ENTITY contador IS
+	PORT(
+		clk : IN std_logic;
+		b3 : IN std_logic;
+		b4 : IN std_logic;
+		s1 : IN std_logic;
+		estacao : OUT integer;
+	);
+END contador;
+

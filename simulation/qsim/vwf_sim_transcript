@@ -1,0 +1,177 @@
+Determining the location of the ModelSim executable...
+
+Using: g:/intelfpga_lite/20.1/modelsim_ase/win32aloem/
+
+To specify a ModelSim executable directory, select: Tools -> Options -> EDA Tool Options
+Note: if both ModelSim-Altera and ModelSim executables are available, ModelSim-Altera will be used.
+
+**** Generating the ModelSim Testbench ****
+
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Digital_Radio_Interface -c Digital_Radio_Interface --vector_source="D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Waveform5.vwf" --testbench_file="D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/simulation/qsim/Waveform5.vwf.vht"
+
+Info: *******************************************************************
+Info: Running Quartus Prime EDA Netlist Writer
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Copyright (C) 2020  Intel Corporation. All rights reserved.
+    Info: Your use of Intel Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Intel Program License 
+    Info: Subscription Agreement, the Intel Quartus Prime License Agreement,
+    Info: the Intel FPGA IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Intel and sold by Intel or its authorized distributors.  Please
+    Info: refer to the applicable agreement for further details, at
+    Info: https://fpgasoftware.intel.com/eula.
+    Info: Processing started: Fri Aug 06 19:49:50 2021
+Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Digital_Radio_Interface -c Digital_Radio_Interface --vector_source=D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Waveform5.vwf --testbench_file=D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/simulation/qsim/Waveform5.vwf.vht
+Info (119006): Selected device EP4CE6E22C8 for design "Digital_Radio_Interface"
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+
+Completed successfully. 
+
+**** Generating the functional simulation netlist ****
+
+quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/simulation/qsim/" Digital_Radio_Interface -c Digital_Radio_Interface
+
+Info: *******************************************************************
+Info: Running Quartus Prime EDA Netlist Writer
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Copyright (C) 2020  Intel Corporation. All rights reserved.
+    Info: Your use of Intel Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Intel Program License 
+    Info: Subscription Agreement, the Intel Quartus Prime License Agreement,
+    Info: the Intel FPGA IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Intel and sold by Intel or its authorized distributors.  Please
+    Info: refer to the applicable agreement for further details, at
+    Info: https://fpgasoftware.intel.com/eula.
+    Info: Processing started: Fri Aug 06 19:49:51 2021
+Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/simulation/qsim/ Digital_Radio_Interface -c Digital_Radio_Interface
+Info (119006): Selected device EP4CE6E22C8 for design "Digital_Radio_Interface"
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (204019): Generated file Digital_Radio_Interface.vho in folder "D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/simulation/qsim//" for EDA simulation tool
+Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 520 megabytes
+    Info: Processing ended: Fri Aug 06 19:49:52 2021
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+Completed successfully. 
+
+**** Generating the ModelSim .do script ****
+
+D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/simulation/qsim/Digital_Radio_Interface.do generated.
+
+Completed successfully. 
+
+**** Running the ModelSim simulation ****
+
+g:/intelfpga_lite/20.1/modelsim_ase/win32aloem//vsim -c -do Digital_Radio_Interface.do
+
+Reading pref.tcl
+
+# 2020.1
+
+
+# do Digital_Radio_Interface.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 19:49:53 on Aug 06,2021
+# vcom -work work Digital_Radio_Interface.vho 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package dffeas_pack
+# -- Loading package altera_primitives_components
+
+# -- Loading package cycloneive_atom_pack
+# -- Loading package cycloneive_components
+# -- Compiling entity Digital_Radio_Interface
+# -- Compiling architecture structure of Digital_Radio_Interface
+
+# End time: 19:49:54 on Aug 06,2021, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 19:49:54 on Aug 06,2021
+# vcom -work work Waveform5.vwf.vht 
+
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Digital_Radio_Interface_vhd_vec_tst
+# -- Compiling architecture Digital_Radio_Interface_arch of Digital_Radio_Interface_vhd_vec_tst
+
+# End time: 19:49:54 on Aug 06,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+
+# vsim -c -t 1ps -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.Digital_Radio_Interface_vhd_vec_tst 
+# Start time: 19:49:54 on Aug 06,2021
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.digital_radio_interface_vhd_vec_tst(digital_radio_interface_arch)
+# Loading ieee.vital_timing(body)
+# Loading ieee.vital_primitives(body)
+# Loading altera.dffeas_pack
+# Loading altera.altera_primitives_components
+# Loading cycloneive.cycloneive_atom_pack(body)
+# Loading cycloneive.cycloneive_components
+# Loading work.digital_radio_interface(structure)
+# Loading ieee.std_logic_arith(body)
+# Loading cycloneive.cycloneive_io_obuf(arch)
+# Loading cycloneive.cycloneive_io_ibuf(arch)
+# Loading cycloneive.cycloneive_lcell_comb(vital_lcell_comb)
+# Loading altera.dffeas(vital_dffeas)
+# ** Warning: Design size of 243815 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+# after#33
+
+# Simulation time: 33750 ps
+
+# Simulation time: 33750 ps
+
+# Simulation time: 33750 ps
+
+# Simulation time: 33750 ps
+
+# Simulation time: 33750 ps
+
+# Simulation time: 33750 ps
+
+# Simulation time: 33750 ps
+
+# Simulation time: 33750 ps
+
+# Simulation time: 854750 ps
+
+# End time: 19:50:19 on Aug 06,2021, Elapsed time: 0:00:25
+# Errors: 0, Warnings: 1
+
+Completed successfully. 
+
+**** Converting ModelSim VCD to vector waveform ****
+
+Reading D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Waveform5.vwf...
+
+Reading D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/simulation/qsim/Digital_Radio_Interface.msim.vcd...
+
+Processing channel transitions... 
+
+Writing the resulting VWF to D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/simulation/qsim/Digital_Radio_Interface_20210806195019.sim.vwf
+
+Finished VCD to VWF conversion.
+
+Completed successfully. 
+
+All completed.

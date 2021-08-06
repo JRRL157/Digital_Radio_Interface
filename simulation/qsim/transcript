@@ -1,0 +1,60 @@
+# do Digital_Radio_Interface.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 19:49:53 on Aug 06,2021
+# vcom -work work Digital_Radio_Interface.vho 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package dffeas_pack
+# -- Loading package altera_primitives_components
+# -- Loading package cycloneive_atom_pack
+# -- Loading package cycloneive_components
+# -- Compiling entity Digital_Radio_Interface
+# -- Compiling architecture structure of Digital_Radio_Interface
+# End time: 19:49:54 on Aug 06,2021, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 19:49:54 on Aug 06,2021
+# vcom -work work Waveform5.vwf.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Digital_Radio_Interface_vhd_vec_tst
+# -- Compiling architecture Digital_Radio_Interface_arch of Digital_Radio_Interface_vhd_vec_tst
+# End time: 19:49:54 on Aug 06,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -c -t 1ps -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.Digital_Radio_Interface_vhd_vec_tst 
+# Start time: 19:49:54 on Aug 06,2021
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.digital_radio_interface_vhd_vec_tst(digital_radio_interface_arch)
+# Loading ieee.vital_timing(body)
+# Loading ieee.vital_primitives(body)
+# Loading altera.dffeas_pack
+# Loading altera.altera_primitives_components
+# Loading cycloneive.cycloneive_atom_pack(body)
+# Loading cycloneive.cycloneive_components
+# Loading work.digital_radio_interface(structure)
+# Loading ieee.std_logic_arith(body)
+# Loading cycloneive.cycloneive_io_obuf(arch)
+# Loading cycloneive.cycloneive_io_ibuf(arch)
+# Loading cycloneive.cycloneive_lcell_comb(vital_lcell_comb)
+# Loading altera.dffeas(vital_dffeas)
+# ** Warning: Design size of 243815 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+# after#33
+# Simulation time: 33750 ps
+# Simulation time: 33750 ps
+# Simulation time: 33750 ps
+# Simulation time: 33750 ps
+# Simulation time: 33750 ps
+# Simulation time: 33750 ps
+# Simulation time: 33750 ps
+# Simulation time: 33750 ps
+# Simulation time: 854750 ps
+# End time: 19:50:19 on Aug 06,2021, Elapsed time: 0:00:25
+# Errors: 0, Warnings: 1
