@@ -3,15 +3,15 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'clk'
-Slack : -4.818
-TNS   : -39.084
+Slack : -4.794
+TNS   : -38.338
 
-Type  : Slow 1200mV 85C Model Setup 'E~reg0'
-Slack : -0.383
-TNS   : -6.187
+Type  : Slow 1200mV 85C Model Setup 'lcd:lcd_map|E'
+Slack : -0.388
+TNS   : -10.235
 
-Type  : Slow 1200mV 85C Model Hold 'E~reg0'
-Slack : 0.500
+Type  : Slow 1200mV 85C Model Hold 'lcd:lcd_map|E'
+Slack : 0.494
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'clk'
@@ -22,20 +22,20 @@ Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
 Slack : -3.000
 TNS   : -28.279
 
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'E~reg0'
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'lcd:lcd_map|E'
 Slack : -1.487
-TNS   : -65.428
+TNS   : -89.220
 
 Type  : Slow 1200mV 0C Model Setup 'clk'
-Slack : -4.360
-TNS   : -34.090
+Slack : -4.354
+TNS   : -33.326
 
-Type  : Slow 1200mV 0C Model Setup 'E~reg0'
-Slack : -0.284
-TNS   : -3.494
+Type  : Slow 1200mV 0C Model Setup 'lcd:lcd_map|E'
+Slack : -0.290
+TNS   : -5.941
 
-Type  : Slow 1200mV 0C Model Hold 'E~reg0'
-Slack : 0.469
+Type  : Slow 1200mV 0C Model Hold 'lcd:lcd_map|E'
+Slack : 0.459
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'clk'
@@ -46,32 +46,32 @@ Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
 TNS   : -28.279
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'E~reg0'
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'lcd:lcd_map|E'
 Slack : -1.487
-TNS   : -65.428
+TNS   : -89.220
 
 Type  : Fast 1200mV 0C Model Setup 'clk'
-Slack : -1.502
-TNS   : -8.060
+Slack : -1.433
+TNS   : -7.548
 
-Type  : Fast 1200mV 0C Model Setup 'E~reg0'
+Type  : Fast 1200mV 0C Model Setup 'lcd:lcd_map|E'
 Slack : 0.395
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Hold 'E~reg0'
+Type  : Fast 1200mV 0C Model Hold 'lcd:lcd_map|E'
 Slack : 0.193
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'clk'
-Slack : 0.293
+Slack : 0.291
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -21.088
+TNS   : -21.105
 
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'E~reg0'
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'lcd:lcd_map|E'
 Slack : -1.000
-TNS   : -44.000
+TNS   : -60.000
 
 ------------------------------------------------------------

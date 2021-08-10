@@ -24,7 +24,13 @@
 	entity lcd is
 	generic (fclk: natural := 50_000_000); -- 50MHz , cristal do kit EE03
 	port (
-			 clk, radio         :     in bit; 
+			 --Variáveis que são passadas pelo main
+			 D1,D2,D3,D4 	 : IN bit_vector(7 DOWNTO 0);
+			 M1,M2,M3,M4,M5 : IN bit_vector(7 DOWNTO 0);
+			 S1_Freq 		 : IN bit_vector(7 DOWNTO 0);
+			 S1_Modo			 : IN bit_vector(7 DOWNTO 0);
+			 
+			 clk         :     in bit; 
 			 RS, RW      :    out bit;
 			 E           : buffer bit;  
 			 DB          :    out bit_vector(7 downto 0));
@@ -260,27 +266,27 @@
 
 			when  WriteData7   =>
 			RS<=   '1';   RW<=   '0';
-			DB   <=  X"52";                 --'R'
+			DB   <=  M1;                 --'R -M1'
 			nx_state  <= WriteData8;
 
 			when  WriteData8   =>
 			RS<=   '1';   RW<=   '0';
-			DB   <=  X"41";                 --'A'
+			DB   <=  M2;                 --'A -M2'
 			nx_state  <= WriteData9;
 			
 			when WriteData9 =>
 			RS<= '1'; RW<= '0';
-			DB <= X"44";                    --'D'
+			DB <= M3;                    --'D -M3'
 			nx_state <= WriteData10; 
 			
 			when WriteData10 =>
 			RS<= '1'; RW<= '0';
-			DB <= X"49";                    --'I'
+			DB <= M4;                    --'I -M4'
 			nx_state  <= WriteData11; 
 			
 			when  WriteData11   =>
 			RS<=   '1';   RW<=   '0';
-			DB   <=  X"4F";                 --'O'
+			DB   <=  M5;                 --'O -M5'
 			nx_state  <= WriteData12; 
 
 			when  WriteData12   =>
@@ -290,7 +296,7 @@
 
 			when  WriteData13   =>
 			RS<=   '1';   RW<=   '0';
-			DB   <=  X"41";                 --'A'
+			DB   <=  S1_Modo;                 --'A - S1'
 			nx_state  <= WriteData14;
 
 			when  WriteData14   =>
@@ -338,28 +344,28 @@
 
 			when WriteData21 =>
 			RS<= '1'; RW<= '0';
-			DB <= X"35";                    --'5'
+			DB <= D1;                    --'5 - D1'
 			nx_state <= WriteData22;
 
 			when WriteData22 =>
 			RS<= '1'; RW<= '0';
-			DB <= X"34";                    --'4'
+			DB <= D2;                    --'4 - D2'
 			nx_state <= WriteData23;
 
 			when WriteData23 =>
 			RS<= '1'; RW<= '0';
-			DB <= X"30";                    --'0'
+			DB <= D3;                    --'0 - D3'
 			nx_state <= WriteData24;
 
 			when WriteData24 =>
 			RS<= '1'; RW<= '0';
-			DB <= X"20";                    --' '
+			DB <= D4;                    --' - D4'
 			nx_state <= WriteData25;
 
 
 			when WriteData25 =>
 			RS<= '1'; RW<= '0';
-			DB <= X"4B";                    --'K'
+			DB <= S1_Freq;                    --'K -S1'
 			nx_state <= WriteData26; 
 			
 			when WriteData26 =>
@@ -369,7 +375,7 @@
 			
 			when WriteData27 =>
 			RS<= '1'; RW<= '0';
-			DB <= X"7A";                    --'z'
+			DB <= X"7A";                    --'Z'
 			nx_state <= ReturnHome; 
 
 			when   ReturnHome   =>

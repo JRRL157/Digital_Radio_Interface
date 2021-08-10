@@ -4,11 +4,83 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "key",
+					"name" : "estacao_saida[0]",
 					"strict" : false
 				},
 				{
-					"name" : "btn",
+					"name" : "estacao_saida[1]",
+					"strict" : false
+				},
+				{
+					"name" : "estacao_saida[2]",
+					"strict" : false
+				},
+				{
+					"name" : "estacao_saida[4]",
+					"strict" : false
+				},
+				{
+					"name" : "estacao_saida[5]",
+					"strict" : false
+				},
+				{
+					"name" : "estacao_saida[6]",
+					"strict" : false
+				},
+				{
+					"name" : "estacao_saida[8]",
+					"strict" : false
+				},
+				{
+					"name" : "RS",
+					"strict" : false
+				},
+				{
+					"name" : "E",
+					"strict" : false
+				},
+				{
+					"name" : "DB[0]",
+					"strict" : false
+				},
+				{
+					"name" : "DB[1]",
+					"strict" : false
+				},
+				{
+					"name" : "DB[2]",
+					"strict" : false
+				},
+				{
+					"name" : "DB[3]",
+					"strict" : false
+				},
+				{
+					"name" : "DB[4]",
+					"strict" : false
+				},
+				{
+					"name" : "DB[5]",
+					"strict" : false
+				},
+				{
+					"name" : "DB[6]",
+					"strict" : false
+				},
+				{
+					"name" : "DB[7]",
+					"strict" : false
+				},
+				{
+					"name" : "s1",
+					"strict" : false
+				},
+				{
+					"name" : "s2",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
 					"strict" : false
 				}
 			]
