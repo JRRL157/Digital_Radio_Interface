@@ -2,7 +2,7 @@
 --
 --   FileName:         debounce.vhd
 --   Dependencies:     none
---   Design Software:  Quartus Prime Version 17.0.0 Build 595 SJ Lite Edition
+--   Design Software:  Quartus II 32-bit Version 11.1 Build 173 SJ Full Version
 --
 --   HDL CODE IS PROVIDED "AS IS."  DIGI-KEY EXPRESSLY DISCLAIMS ANY
 --   WARRANTY OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT
@@ -15,24 +15,20 @@
 --   ANY CLAIMS FOR INDEMNITY OR CONTRIBUTION, OR OTHER SIMILAR COSTS.
 --
 --   Version History
---   Version 2.0 6/28/2019 Scott Larson
---     Added asynchronous active-low reset
---     Made stable time higher resolution and simpler to specify
 --   Version 1.0 3/26/2012 Scott Larson
---     Initial Public Release
+--     Initial Public Release 
 --
 --------------------------------------------------------------------------------
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
+USE ieee.std_logic_unsigned.all;
 
 ENTITY debounce IS
   GENERIC(
-    clk_freq    : INTEGER := 50_000_000;  --system clock frequency in Hz
-    stable_time : INTEGER := 10);         --time button must remain stable in ms
+    counter_size  :  INTEGER := 19); --counter size (19 bits gives 10.5ms with 50MHz clock)
   PORT(
     clk     : IN  STD_LOGIC;  --input clock
-    reset_n : IN  STD_LOGIC;  --asynchronous active low reset
     button  : IN  STD_LOGIC;  --input signal to be debounced
     result  : OUT STD_LOGIC); --debounced signal
 END debounce;
@@ -40,27 +36,23 @@ END debounce;
 ARCHITECTURE logic OF debounce IS
   SIGNAL flipflops   : STD_LOGIC_VECTOR(1 DOWNTO 0); --input flip flops
   SIGNAL counter_set : STD_LOGIC;                    --sync reset to zero
+  SIGNAL counter_out : STD_LOGIC_VECTOR(counter_size DOWNTO 0) := (OTHERS => '0'); --counter output
 BEGIN
 
-  counter_set <= flipflops(0) xor flipflops(1);  --determine when to start/reset counter
+  counter_set <= flipflops(0) xor flipflops(1);   --determine when to start/reset counter
   
-  PROCESS(clk, reset_n)
-    VARIABLE count :  INTEGER RANGE 0 TO clk_freq*stable_time/1000;  --counter for timing
+  PROCESS(clk)
   BEGIN
-    IF(reset_n = '0') THEN                        --reset
-      flipflops(1 DOWNTO 0) <= "00";                 --clear input flipflops
-      result <= '0';                                 --clear result register
-    ELSIF(clk'EVENT and clk = '1') THEN           --rising clock edge
-      flipflops(0) <= button;                        --store button value in 1st flipflop
-      flipflops(1) <= flipflops(0);                  --store 1st flipflop value in 2nd flipflop
-      If(counter_set = '1') THEN                     --reset counter because input is changing
-        count := 0;                                    --clear the counter
-      ELSIF(count < clk_freq*stable_time/1000) THEN  --stable input time is not yet met
-        count := count + 1;                            --increment counter
-      ELSE                                           --stable input time is met
-        result <= flipflops(1);                        --output the stable value
+    IF(clk'EVENT and clk = '1') THEN
+      flipflops(0) <= button;
+      flipflops(1) <= flipflops(0);
+      If(counter_set = '1') THEN                  --reset counter because input is changing
+        counter_out <= (OTHERS => '0');
+      ELSIF(counter_out(counter_size) = '0') THEN --stable input time is not yet met
+        counter_out <= counter_out + 1;
+      ELSE                                        --stable input time is met
+        result <= flipflops(1);
       END IF;    
     END IF;
   END PROCESS;
-  
 END logic;

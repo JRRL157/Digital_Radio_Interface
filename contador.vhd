@@ -10,7 +10,8 @@ ENTITY contador IS
 		b3 : IN std_logic; --Decrescente
 		b4 : IN std_logic; --Crescente
 		s1 : IN std_logic; --AM/FM
-		estacao : OUT std_logic_vector (11 DOWNTO 0) --Número da estação
+		enable : IN std_logic;
+		estacao : OUT integer --Número da estação
 	);	
 END contador;
 
@@ -19,11 +20,11 @@ ARCHITECTURE contando OF contador is
 	SIGNAL contador_am : integer := 540;
 	SIGNAL contador_fm : integer := 875;
 BEGIN
-	clock2Hz : entity work.divisor_clock PORT MAP(clk => clk, clock => freq);
+	clock2Hz : entity work.divisor_clock PORT MAP(clk => clk, clock => freq);		
 	
 	PROCESS(freq) IS
 	BEGIN
-		IF rising_edge(freq) THEN
+		IF rising_edge(freq) AND enable = '1' THEN
 			IF s1 = '0' THEN --AM								
 				IF (B3 = '0') THEN --Decrescente
 					IF (contador_am = 540) THEN
@@ -56,9 +57,9 @@ BEGIN
 		END IF;
 	
 		IF (s1 = '0') THEN
-			estacao <= std_logic_vector(to_unsigned(contador_am,estacao'length));
+			estacao <= contador_am;
 		ELSE
-			estacao <= std_logic_vector(to_unsigned(contador_fm,estacao'length));
+			estacao <= contador_fm;
 		END IF;
 		
 	END PROCESS;

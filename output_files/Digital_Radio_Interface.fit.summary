@@ -1,15 +1,15 @@
-Fitter Status : Successful - Thu Aug 05 17:36:15 2021
+Fitter Status : Failed - Sat Aug 07 00:00:13 2021
 Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 Revision Name : Digital_Radio_Interface
-Top-level Entity Name : lcd
+Top-level Entity Name : Digital_Radio_Interface
 Family : Cyclone IV E
 Device : EP4CE6E22C8
 Timing Models : Final
-Total logic elements : 80 / 6,272 ( 1 % )
-    Total combinational functions : 55 / 6,272 ( < 1 % )
-    Dedicated logic registers : 61 / 6,272 ( < 1 % )
-Total registers : 61
-Total pins : 12 / 92 ( 13 % )
+Total logic elements : 11,149 / 6,272 ( 178 % )
+    Total combinational functions : 11,149 / 6,272 ( 178 % )
+    Dedicated logic registers : 96 / 6,272 ( 2 % )
+Total registers : 96
+Total pins : 21 / 92 ( 23 % )
 Total virtual pins : 0
 Total memory bits : 0 / 276,480 ( 0 % )
 Embedded Multiplier 9-bit elements : 0 / 30 ( 0 % )
