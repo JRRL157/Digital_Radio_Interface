@@ -11,7 +11,7 @@ END divisor_clock;
 ARCHITECTURE divisao OF divisor_clock IS
 	SIGNAL cont : integer := 0;
 	SIGNAL saida : std_logic := '0';
-	SIGNAL N : integer := 10;
+	SIGNAL N : integer := 50_000_000;
 BEGIN
 	PROCESS(clk) is
 	begin
