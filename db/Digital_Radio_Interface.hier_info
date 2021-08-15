@@ -26,20 +26,8 @@ s2 => lcd:lcd_map.M4[4]
 s2 => lcd:lcd_map.M4[2]
 s2 => lcd:lcd_map.M4[1]
 s2 => lcd:lcd_map.M5[5]
-b3 => ~NO_FANOUT~
-b4 => ~NO_FANOUT~
-estacao_saida[0] <= contador:cont.estacao[0]
-estacao_saida[1] <= contador:cont.estacao[1]
-estacao_saida[2] <= contador:cont.estacao[2]
-estacao_saida[3] <= contador:cont.estacao[3]
-estacao_saida[4] <= contador:cont.estacao[4]
-estacao_saida[5] <= contador:cont.estacao[5]
-estacao_saida[6] <= contador:cont.estacao[6]
-estacao_saida[7] <= contador:cont.estacao[7]
-estacao_saida[8] <= contador:cont.estacao[8]
-estacao_saida[9] <= contador:cont.estacao[9]
-estacao_saida[10] <= contador:cont.estacao[10]
-estacao_saida[11] <= contador:cont.estacao[11]
+b3 => debounce:debounce_b3.button
+b4 => debounce:debounce_b4.button
 RS <= lcd:lcd_map.RS
 RW <= lcd:lcd_map.RW
 E <= lcd:lcd_map.E
@@ -51,6 +39,8 @@ DB[4] <= lcd:lcd_map.DB[4]
 DB[5] <= lcd:lcd_map.DB[5]
 DB[6] <= lcd:lcd_map.DB[6]
 DB[7] <= lcd:lcd_map.DB[7]
+led1 <= btn_key:chave_chave_b3.key
+led2 <= btn_key:chave_chave_b4.key
 
 
 |Digital_Radio_Interface|debounce:debounce_b3

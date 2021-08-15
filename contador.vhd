@@ -22,7 +22,7 @@ ARCHITECTURE contando OF contador is
 BEGIN
 	clock2Hz : entity work.divisor_clock PORT MAP(clk => clk, clock => freq);		
 	
-	PROCESS(freq) IS
+	PROCESS(freq,enable,s1,contador_am,contador_fm) IS
 	BEGIN
 		IF rising_edge(freq) AND enable = '1' THEN
 			IF s1 = '0' THEN --AM								

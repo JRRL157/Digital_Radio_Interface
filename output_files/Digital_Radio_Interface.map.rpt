@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Digital_Radio_Interface
-Tue Aug 10 15:58:19 2021
+Sun Aug 15 16:59:28 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -15,24 +15,25 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. State Machine - |Digital_Radio_Interface|lcd:lcd_map|pr_state
   9. Registers Removed During Synthesis
- 10. Removed Registers Triggering Further Register Optimizations
- 11. General Register Statistics
- 12. Parameter Settings for User Entity Instance: debounce:debounce_b3
- 13. Parameter Settings for User Entity Instance: debounce:debounce_b4
- 14. Parameter Settings for User Entity Instance: lcd:lcd_map
- 15. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
- 16. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
- 17. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1
- 18. Parameter Settings for Inferred Entity Instance: lpm_divide:Div1
- 19. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod2
- 20. Parameter Settings for Inferred Entity Instance: lpm_divide:Div2
- 21. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod3
- 22. Port Connectivity Checks: "lcd:lcd_map"
- 23. Port Connectivity Checks: "debounce:debounce_b4"
- 24. Port Connectivity Checks: "debounce:debounce_b3"
- 25. Post-Synthesis Netlist Statistics for Top Partition
- 26. Elapsed Time Per Partition
- 27. Analysis & Synthesis Messages
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: debounce:debounce_b3
+ 14. Parameter Settings for User Entity Instance: debounce:debounce_b4
+ 15. Parameter Settings for User Entity Instance: lcd:lcd_map
+ 16. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
+ 17. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
+ 18. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1
+ 19. Parameter Settings for Inferred Entity Instance: lpm_divide:Div1
+ 20. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod2
+ 21. Parameter Settings for Inferred Entity Instance: lpm_divide:Div2
+ 22. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod3
+ 23. Parameter Settings for Inferred Entity Instance: contador:cont|divisor_clock:clock2Hz|lpm_divide:Mod0
+ 24. Port Connectivity Checks: "lcd:lcd_map"
+ 25. Port Connectivity Checks: "contador:cont"
+ 26. Post-Synthesis Netlist Statistics for Top Partition
+ 27. Elapsed Time Per Partition
+ 28. Analysis & Synthesis Messages
 
 
 
@@ -59,16 +60,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Aug 10 15:58:19 2021       ;
+; Analysis & Synthesis Status        ; Successful - Sun Aug 15 16:59:28 2021       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; Digital_Radio_Interface                     ;
 ; Top-level Entity Name              ; Digital_Radio_Interface                     ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 5,179                                       ;
-;     Total combinational functions  ; 5,121                                       ;
-;     Dedicated logic registers      ; 77                                          ;
-; Total registers                    ; 77                                          ;
-; Total pins                         ; 28                                          ;
+; Total logic elements               ; 1,958                                       ;
+;     Total combinational functions  ; 1,896                                       ;
+;     Dedicated logic registers      ; 221                                         ;
+; Total registers                    ; 221                                         ;
+; Total pins                         ; 18                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -84,6 +85,7 @@ https://fpgasoftware.intel.com/eula.
 ; Device                                                           ; EP4CE6E22C8             ;                         ;
 ; Top-level entity name                                            ; Digital_Radio_Interface ; Digital_Radio_Interface ;
 ; Family name                                                      ; Cyclone IV E            ; Cyclone V               ;
+; Maximum processors allowed for parallel compilation              ; 4                       ;                         ;
 ; Use smart compilation                                            ; Off                     ; Off                     ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                      ; On                      ;
 ; Enable compact report table                                      ; Off                     ; Off                     ;
@@ -175,9 +177,9 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.1%      ;
-;     Processor 3            ;   0.1%      ;
-;     Processor 4            ;   0.1%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -196,87 +198,118 @@ https://fpgasoftware.intel.com/eula.
 ; abs_divider.inc                  ; yes             ; Megafunction                 ; g:/intelfpga_lite/20.1/quartus/libraries/megafunctions/abs_divider.inc         ;         ;
 ; sign_div_unsign.inc              ; yes             ; Megafunction                 ; g:/intelfpga_lite/20.1/quartus/libraries/megafunctions/sign_div_unsign.inc     ;         ;
 ; aglobal201.inc                   ; yes             ; Megafunction                 ; g:/intelfpga_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc          ;         ;
+; db/lpm_divide_ecm.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/lpm_divide_ecm.tdf       ;         ;
+; db/sign_div_unsign_3nh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/sign_div_unsign_3nh.tdf  ;         ;
+; db/alt_u_div_q9f.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/alt_u_div_q9f.tdf        ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/add_sub_7pc.tdf          ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/add_sub_8pc.tdf          ;         ;
+; db/lpm_divide_o0p.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/lpm_divide_o0p.tdf       ;         ;
+; db/abs_divider_jbg.tdf           ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/abs_divider_jbg.tdf      ;         ;
+; db/alt_u_div_47f.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/alt_u_div_47f.tdf        ;         ;
+; db/lpm_abs_2v9.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/lpm_abs_2v9.tdf          ;         ;
+; db/lpm_abs_h0a.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/lpm_abs_h0a.tdf          ;         ;
+; db/lpm_divide_q9m.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/lpm_divide_q9m.tdf       ;         ;
+; db/sign_div_unsign_fkh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/sign_div_unsign_fkh.tdf  ;         ;
+; db/alt_u_div_i4f.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/alt_u_div_i4f.tdf        ;         ;
+; db/lpm_divide_l0p.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/lpm_divide_l0p.tdf       ;         ;
+; db/abs_divider_gbg.tdf           ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/abs_divider_gbg.tdf      ;         ;
+; db/alt_u_div_u6f.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/alt_u_div_u6f.tdf        ;         ;
+; db/lpm_abs_e0a.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/lpm_abs_e0a.tdf          ;         ;
+; db/lpm_divide_k9m.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/lpm_divide_k9m.tdf       ;         ;
+; db/sign_div_unsign_9kh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/sign_div_unsign_9kh.tdf  ;         ;
+; db/alt_u_div_64f.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/alt_u_div_64f.tdf        ;         ;
+; db/lpm_divide_bvo.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/lpm_divide_bvo.tdf       ;         ;
+; db/abs_divider_6ag.tdf           ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/abs_divider_6ag.tdf      ;         ;
+; db/alt_u_div_a4f.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/alt_u_div_a4f.tdf        ;         ;
+; db/lpm_abs_4v9.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/lpm_abs_4v9.tdf          ;         ;
+; db/lpm_divide_f9m.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/lpm_divide_f9m.tdf       ;         ;
+; db/sign_div_unsign_7kh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/sign_div_unsign_7kh.tdf  ;         ;
+; db/alt_u_div_24f.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/alt_u_div_24f.tdf        ;         ;
 ; db/lpm_divide_cqo.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/lpm_divide_cqo.tdf       ;         ;
 ; db/abs_divider_4dg.tdf           ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/abs_divider_4dg.tdf      ;         ;
 ; db/alt_u_div_6af.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/alt_u_div_6af.tdf        ;         ;
-; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/add_sub_7pc.tdf          ;         ;
-; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/add_sub_8pc.tdf          ;         ;
 ; db/lpm_abs_i0a.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/lpm_abs_i0a.tdf          ;         ;
-; db/lpm_divide_p0p.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/lpm_divide_p0p.tdf       ;         ;
-; db/abs_divider_kbg.tdf           ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/abs_divider_kbg.tdf      ;         ;
-; db/alt_u_div_67f.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/alt_u_div_67f.tdf        ;         ;
-; db/lpm_abs_2v9.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/lpm_abs_2v9.tdf          ;         ;
 +----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------+---------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                                                             ;
-+---------------------------------------------+---------------------------------------------------------------------------+
-; Resource                                    ; Usage                                                                     ;
-+---------------------------------------------+---------------------------------------------------------------------------+
-; Estimated Total logic elements              ; 5,179                                                                     ;
-;                                             ;                                                                           ;
-; Total combinational functions               ; 5121                                                                      ;
-; Logic element usage by number of LUT inputs ;                                                                           ;
-;     -- 4 input functions                    ; 1645                                                                      ;
-;     -- 3 input functions                    ; 1645                                                                      ;
-;     -- <=2 input functions                  ; 1831                                                                      ;
-;                                             ;                                                                           ;
-; Logic elements by mode                      ;                                                                           ;
-;     -- normal mode                          ; 3410                                                                      ;
-;     -- arithmetic mode                      ; 1711                                                                      ;
-;                                             ;                                                                           ;
-; Total registers                             ; 77                                                                        ;
-;     -- Dedicated logic registers            ; 77                                                                        ;
-;     -- I/O registers                        ; 0                                                                         ;
-;                                             ;                                                                           ;
-; I/O pins                                    ; 28                                                                        ;
-;                                             ;                                                                           ;
-; Embedded Multiplier 9-bit elements          ; 0                                                                         ;
-;                                             ;                                                                           ;
-; Maximum fan-out node                        ; lpm_divide:Div1|lpm_divide_p0p:auto_generated|abs_divider_kbg:divider|_~0 ;
-; Maximum fan-out                             ; 126                                                                       ;
-; Total fan-out                               ; 15113                                                                     ;
-; Average fan-out                             ; 2.86                                                                      ;
-+---------------------------------------------+---------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                ;
++---------------------------------------------+----------------------------------------------+
+; Resource                                    ; Usage                                        ;
++---------------------------------------------+----------------------------------------------+
+; Estimated Total logic elements              ; 1,958                                        ;
+;                                             ;                                              ;
+; Total combinational functions               ; 1896                                         ;
+; Logic element usage by number of LUT inputs ;                                              ;
+;     -- 4 input functions                    ; 579                                          ;
+;     -- 3 input functions                    ; 516                                          ;
+;     -- <=2 input functions                  ; 801                                          ;
+;                                             ;                                              ;
+; Logic elements by mode                      ;                                              ;
+;     -- normal mode                          ; 1244                                         ;
+;     -- arithmetic mode                      ; 652                                          ;
+;                                             ;                                              ;
+; Total registers                             ; 221                                          ;
+;     -- Dedicated logic registers            ; 221                                          ;
+;     -- I/O registers                        ; 0                                            ;
+;                                             ;                                              ;
+; I/O pins                                    ; 18                                           ;
+;                                             ;                                              ;
+; Embedded Multiplier 9-bit elements          ; 0                                            ;
+;                                             ;                                              ;
+; Maximum fan-out node                        ; contador:cont|divisor_clock:clock2Hz|Add0~62 ;
+; Maximum fan-out                             ; 130                                          ;
+; Total fan-out                               ; 5928                                         ;
+; Average fan-out                             ; 2.75                                         ;
++---------------------------------------------+----------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                               ;
-+---------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
-; Compilation Hierarchy Node            ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                   ; Entity Name             ; Library Name ;
-+---------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
-; |Digital_Radio_Interface              ; 5121 (273)          ; 77 (0)                    ; 0           ; 0            ; 0       ; 0         ; 28   ; 0            ; |Digital_Radio_Interface                                                                                              ; Digital_Radio_Interface ; work         ;
-;    |lcd:lcd_map|                      ; 118 (118)           ; 77 (77)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lcd:lcd_map                                                                                  ; lcd                     ; work         ;
-;    |lpm_divide:Div0|                  ; 88 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Div0                                                                              ; lpm_divide              ; work         ;
-;       |lpm_divide_p0p:auto_generated| ; 88 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Div0|lpm_divide_p0p:auto_generated                                                ; lpm_divide_p0p          ; work         ;
-;          |abs_divider_kbg:divider|    ; 88 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Div0|lpm_divide_p0p:auto_generated|abs_divider_kbg:divider                        ; abs_divider_kbg         ; work         ;
-;             |alt_u_div_67f:divider|   ; 88 (88)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Div0|lpm_divide_p0p:auto_generated|abs_divider_kbg:divider|alt_u_div_67f:divider  ; alt_u_div_67f           ; work         ;
-;    |lpm_divide:Div1|                  ; 549 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Div1                                                                              ; lpm_divide              ; work         ;
-;       |lpm_divide_p0p:auto_generated| ; 549 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Div1|lpm_divide_p0p:auto_generated                                                ; lpm_divide_p0p          ; work         ;
-;          |abs_divider_kbg:divider|    ; 549 (64)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Div1|lpm_divide_p0p:auto_generated|abs_divider_kbg:divider                        ; abs_divider_kbg         ; work         ;
-;             |alt_u_div_67f:divider|   ; 449 (449)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Div1|lpm_divide_p0p:auto_generated|abs_divider_kbg:divider|alt_u_div_67f:divider  ; alt_u_div_67f           ; work         ;
-;             |lpm_abs_i0a:my_abs_num|  ; 36 (36)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Div1|lpm_divide_p0p:auto_generated|abs_divider_kbg:divider|lpm_abs_i0a:my_abs_num ; lpm_abs_i0a             ; work         ;
-;    |lpm_divide:Div2|                  ; 550 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Div2                                                                              ; lpm_divide              ; work         ;
-;       |lpm_divide_p0p:auto_generated| ; 550 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Div2|lpm_divide_p0p:auto_generated                                                ; lpm_divide_p0p          ; work         ;
-;          |abs_divider_kbg:divider|    ; 550 (64)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Div2|lpm_divide_p0p:auto_generated|abs_divider_kbg:divider                        ; abs_divider_kbg         ; work         ;
-;             |alt_u_div_67f:divider|   ; 449 (449)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Div2|lpm_divide_p0p:auto_generated|abs_divider_kbg:divider|alt_u_div_67f:divider  ; alt_u_div_67f           ; work         ;
-;             |lpm_abs_i0a:my_abs_num|  ; 37 (37)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Div2|lpm_divide_p0p:auto_generated|abs_divider_kbg:divider|lpm_abs_i0a:my_abs_num ; lpm_abs_i0a             ; work         ;
-;    |lpm_divide:Mod1|                  ; 229 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Mod1                                                                              ; lpm_divide              ; work         ;
-;       |lpm_divide_cqo:auto_generated| ; 229 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Mod1|lpm_divide_cqo:auto_generated                                                ; lpm_divide_cqo          ; work         ;
-;          |abs_divider_4dg:divider|    ; 229 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Mod1|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider                        ; abs_divider_4dg         ; work         ;
-;             |alt_u_div_6af:divider|   ; 229 (229)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Mod1|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|alt_u_div_6af:divider  ; alt_u_div_6af           ; work         ;
-;    |lpm_divide:Mod2|                  ; 1655 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Mod2                                                                              ; lpm_divide              ; work         ;
-;       |lpm_divide_cqo:auto_generated| ; 1655 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Mod2|lpm_divide_cqo:auto_generated                                                ; lpm_divide_cqo          ; work         ;
-;          |abs_divider_4dg:divider|    ; 1655 (64)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Mod2|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider                        ; abs_divider_4dg         ; work         ;
-;             |alt_u_div_6af:divider|   ; 1554 (1554)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Mod2|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|alt_u_div_6af:divider  ; alt_u_div_6af           ; work         ;
-;             |lpm_abs_i0a:my_abs_num|  ; 37 (37)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Mod2|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|lpm_abs_i0a:my_abs_num ; lpm_abs_i0a             ; work         ;
-;    |lpm_divide:Mod3|                  ; 1659 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Mod3                                                                              ; lpm_divide              ; work         ;
-;       |lpm_divide_cqo:auto_generated| ; 1659 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Mod3|lpm_divide_cqo:auto_generated                                                ; lpm_divide_cqo          ; work         ;
-;          |abs_divider_4dg:divider|    ; 1659 (64)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Mod3|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider                        ; abs_divider_4dg         ; work         ;
-;             |alt_u_div_6af:divider|   ; 1554 (1554)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Mod3|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|alt_u_div_6af:divider  ; alt_u_div_6af           ; work         ;
-;             |lpm_abs_i0a:my_abs_num|  ; 41 (41)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Mod3|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|lpm_abs_i0a:my_abs_num ; lpm_abs_i0a             ; work         ;
-+---------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                          ;
++---------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
+; Compilation Hierarchy Node                  ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                        ; Entity Name             ; Library Name ;
++---------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
+; |Digital_Radio_Interface                    ; 1896 (27)           ; 221 (0)                   ; 0           ; 0            ; 0       ; 0         ; 18   ; 0            ; |Digital_Radio_Interface                                                                                                                                   ; Digital_Radio_Interface ; work         ;
+;    |btn_key:chave_chave_b3|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|btn_key:chave_chave_b3                                                                                                            ; btn_key                 ; work         ;
+;    |btn_key:chave_chave_b4|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|btn_key:chave_chave_b4                                                                                                            ; btn_key                 ; work         ;
+;    |contador:cont|                          ; 1094 (243)          ; 96 (63)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|contador:cont                                                                                                                     ; contador                ; work         ;
+;       |divisor_clock:clock2Hz|              ; 851 (158)           ; 33 (33)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|contador:cont|divisor_clock:clock2Hz                                                                                              ; divisor_clock           ; work         ;
+;          |lpm_divide:Mod0|                  ; 693 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|contador:cont|divisor_clock:clock2Hz|lpm_divide:Mod0                                                                              ; lpm_divide              ; work         ;
+;             |lpm_divide_cqo:auto_generated| ; 693 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|contador:cont|divisor_clock:clock2Hz|lpm_divide:Mod0|lpm_divide_cqo:auto_generated                                                ; lpm_divide_cqo          ; work         ;
+;                |abs_divider_4dg:divider|    ; 693 (57)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|contador:cont|divisor_clock:clock2Hz|lpm_divide:Mod0|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider                        ; abs_divider_4dg         ; work         ;
+;                   |alt_u_div_6af:divider|   ; 581 (581)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|contador:cont|divisor_clock:clock2Hz|lpm_divide:Mod0|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|alt_u_div_6af:divider  ; alt_u_div_6af           ; work         ;
+;                   |lpm_abs_i0a:my_abs_num|  ; 55 (55)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|contador:cont|divisor_clock:clock2Hz|lpm_divide:Mod0|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|lpm_abs_i0a:my_abs_num ; lpm_abs_i0a             ; work         ;
+;    |debounce:debounce_b3|                   ; 43 (43)             ; 23 (23)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|debounce:debounce_b3                                                                                                              ; debounce                ; work         ;
+;    |debounce:debounce_b4|                   ; 43 (43)             ; 23 (23)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|debounce:debounce_b4                                                                                                              ; debounce                ; work         ;
+;    |lcd:lcd_map|                            ; 87 (87)             ; 77 (77)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lcd:lcd_map                                                                                                                       ; lcd                     ; work         ;
+;    |lpm_divide:Div0|                        ; 176 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Div0                                                                                                                   ; lpm_divide              ; work         ;
+;       |lpm_divide_o0p:auto_generated|       ; 176 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Div0|lpm_divide_o0p:auto_generated                                                                                     ; lpm_divide_o0p          ; work         ;
+;          |abs_divider_jbg:divider|          ; 176 (32)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Div0|lpm_divide_o0p:auto_generated|abs_divider_jbg:divider                                                             ; abs_divider_jbg         ; work         ;
+;             |alt_u_div_47f:divider|         ; 132 (132)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Div0|lpm_divide_o0p:auto_generated|abs_divider_jbg:divider|alt_u_div_47f:divider                                       ; alt_u_div_47f           ; work         ;
+;             |lpm_abs_h0a:my_abs_num|        ; 12 (12)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Div0|lpm_divide_o0p:auto_generated|abs_divider_jbg:divider|lpm_abs_h0a:my_abs_num                                      ; lpm_abs_h0a             ; work         ;
+;    |lpm_divide:Div1|                        ; 114 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Div1                                                                                                                   ; lpm_divide              ; work         ;
+;       |lpm_divide_l0p:auto_generated|       ; 114 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Div1|lpm_divide_l0p:auto_generated                                                                                     ; lpm_divide_l0p          ; work         ;
+;          |abs_divider_gbg:divider|          ; 114 (20)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Div1|lpm_divide_l0p:auto_generated|abs_divider_gbg:divider                                                             ; abs_divider_gbg         ; work         ;
+;             |alt_u_div_u6f:divider|         ; 84 (84)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Div1|lpm_divide_l0p:auto_generated|abs_divider_gbg:divider|alt_u_div_u6f:divider                                       ; alt_u_div_u6f           ; work         ;
+;             |lpm_abs_e0a:my_abs_num|        ; 10 (10)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Div1|lpm_divide_l0p:auto_generated|abs_divider_gbg:divider|lpm_abs_e0a:my_abs_num                                      ; lpm_abs_e0a             ; work         ;
+;    |lpm_divide:Div2|                        ; 41 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Div2                                                                                                                   ; lpm_divide              ; work         ;
+;       |lpm_divide_bvo:auto_generated|       ; 41 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Div2|lpm_divide_bvo:auto_generated                                                                                     ; lpm_divide_bvo          ; work         ;
+;          |abs_divider_6ag:divider|          ; 41 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Div2|lpm_divide_bvo:auto_generated|abs_divider_6ag:divider                                                             ; abs_divider_6ag         ; work         ;
+;             |alt_u_div_a4f:divider|         ; 36 (36)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Div2|lpm_divide_bvo:auto_generated|abs_divider_6ag:divider|alt_u_div_a4f:divider                                       ; alt_u_div_a4f           ; work         ;
+;             |lpm_abs_4v9:my_abs_num|        ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Div2|lpm_divide_bvo:auto_generated|abs_divider_6ag:divider|lpm_abs_4v9:my_abs_num                                      ; lpm_abs_4v9             ; work         ;
+;    |lpm_divide:Mod0|                        ; 163 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Mod0                                                                                                                   ; lpm_divide              ; work         ;
+;       |lpm_divide_ecm:auto_generated|       ; 163 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Mod0|lpm_divide_ecm:auto_generated                                                                                     ; lpm_divide_ecm          ; work         ;
+;          |sign_div_unsign_3nh:divider|      ; 163 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Mod0|lpm_divide_ecm:auto_generated|sign_div_unsign_3nh:divider                                                         ; sign_div_unsign_3nh     ; work         ;
+;             |alt_u_div_q9f:divider|         ; 163 (163)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Mod0|lpm_divide_ecm:auto_generated|sign_div_unsign_3nh:divider|alt_u_div_q9f:divider                                   ; alt_u_div_q9f           ; work         ;
+;    |lpm_divide:Mod1|                        ; 83 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Mod1                                                                                                                   ; lpm_divide              ; work         ;
+;       |lpm_divide_q9m:auto_generated|       ; 83 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Mod1|lpm_divide_q9m:auto_generated                                                                                     ; lpm_divide_q9m          ; work         ;
+;          |sign_div_unsign_fkh:divider|      ; 83 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Mod1|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider                                                         ; sign_div_unsign_fkh     ; work         ;
+;             |alt_u_div_i4f:divider|         ; 83 (83)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Mod1|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_i4f:divider                                   ; alt_u_div_i4f           ; work         ;
+;    |lpm_divide:Mod2|                        ; 23 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Mod2                                                                                                                   ; lpm_divide              ; work         ;
+;       |lpm_divide_k9m:auto_generated|       ; 23 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Mod2|lpm_divide_k9m:auto_generated                                                                                     ; lpm_divide_k9m          ; work         ;
+;          |sign_div_unsign_9kh:divider|      ; 23 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Mod2|lpm_divide_k9m:auto_generated|sign_div_unsign_9kh:divider                                                         ; sign_div_unsign_9kh     ; work         ;
+;             |alt_u_div_64f:divider|         ; 23 (23)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|lpm_divide:Mod2|lpm_divide_k9m:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_64f:divider                                   ; alt_u_div_64f           ; work         ;
++---------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -349,72 +382,18 @@ Encoding Type:  One-Hot
 +-------------------------+---------------------+----------------------+---------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+--------------------+-------------------------+-----------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+
 
 
-+------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                             ;
-+--------------------------------------------------+---------------------------------------------+
-; Register name                                    ; Reason for Removal                          ;
-+--------------------------------------------------+---------------------------------------------+
-; btn_key:chave_chave_b4|key                       ; Stuck at GND due to stuck port clock        ;
-; btn_key:chave_chave_b4|cont[0..31]               ; Stuck at GND due to stuck port clock        ;
-; btn_key:chave_chave_b3|key                       ; Stuck at GND due to stuck port clock        ;
-; btn_key:chave_chave_b3|cont[0..31]               ; Stuck at GND due to stuck port clock        ;
-; contador:cont|contador_fm[2]                     ; Stuck at GND due to stuck port clock_enable ;
-; contador:cont|contador_fm[0,1,3]                 ; Stuck at VCC due to stuck port clock_enable ;
-; contador:cont|contador_fm[4]                     ; Stuck at GND due to stuck port clock_enable ;
-; contador:cont|contador_fm[5,6]                   ; Stuck at VCC due to stuck port clock_enable ;
-; contador:cont|contador_fm[7]                     ; Stuck at GND due to stuck port clock_enable ;
-; contador:cont|contador_fm[8,9]                   ; Stuck at VCC due to stuck port clock_enable ;
-; contador:cont|contador_fm[10..31]                ; Stuck at GND due to stuck port clock_enable ;
-; contador:cont|contador_am[0,1]                   ; Stuck at GND due to stuck port clock_enable ;
-; contador:cont|contador_am[2..4]                  ; Stuck at VCC due to stuck port clock_enable ;
-; contador:cont|contador_am[5..8]                  ; Stuck at GND due to stuck port clock_enable ;
-; contador:cont|contador_am[9]                     ; Stuck at VCC due to stuck port clock_enable ;
-; contador:cont|contador_am[10..31]                ; Stuck at GND due to stuck port clock_enable ;
-; contador:cont|divisor_clock:clock2Hz|cont[0..3]  ; Lost fanout                                 ;
-; contador:cont|divisor_clock:clock2Hz|saida       ; Lost fanout                                 ;
-; contador:cont|divisor_clock:clock2Hz|cont[4..31] ; Lost fanout                                 ;
-; Total Number of Removed Registers = 163          ;                                             ;
-+--------------------------------------------------+---------------------------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                          ;
-+----------------------------+-------------------------+---------------------------------------------------------------+
-; Register name              ; Reason for Removal      ; Registers Removed due to This Register                        ;
-+----------------------------+-------------------------+---------------------------------------------------------------+
-; btn_key:chave_chave_b4|key ; Stuck at GND            ; contador:cont|contador_fm[2], contador:cont|contador_fm[1],   ;
-;                            ; due to stuck port clock ; contador:cont|contador_fm[0], contador:cont|contador_fm[3],   ;
-;                            ;                         ; contador:cont|contador_fm[4], contador:cont|contador_fm[5],   ;
-;                            ;                         ; contador:cont|contador_fm[6], contador:cont|contador_fm[7],   ;
-;                            ;                         ; contador:cont|contador_fm[8], contador:cont|contador_fm[9],   ;
-;                            ;                         ; contador:cont|contador_fm[10], contador:cont|contador_fm[11], ;
-;                            ;                         ; contador:cont|contador_fm[12], contador:cont|contador_fm[13], ;
-;                            ;                         ; contador:cont|contador_fm[14], contador:cont|contador_fm[15], ;
-;                            ;                         ; contador:cont|contador_fm[16], contador:cont|contador_fm[17], ;
-;                            ;                         ; contador:cont|contador_fm[18], contador:cont|contador_fm[19], ;
-;                            ;                         ; contador:cont|contador_fm[20], contador:cont|contador_fm[21], ;
-;                            ;                         ; contador:cont|contador_fm[22], contador:cont|contador_fm[23], ;
-;                            ;                         ; contador:cont|contador_fm[24], contador:cont|contador_fm[25], ;
-;                            ;                         ; contador:cont|contador_fm[26], contador:cont|contador_fm[27], ;
-;                            ;                         ; contador:cont|contador_fm[28], contador:cont|contador_fm[29], ;
-;                            ;                         ; contador:cont|contador_fm[30], contador:cont|contador_fm[31], ;
-;                            ;                         ; contador:cont|contador_am[0], contador:cont|contador_am[1],   ;
-;                            ;                         ; contador:cont|contador_am[2], contador:cont|contador_am[3],   ;
-;                            ;                         ; contador:cont|contador_am[4], contador:cont|contador_am[5],   ;
-;                            ;                         ; contador:cont|contador_am[6], contador:cont|contador_am[7],   ;
-;                            ;                         ; contador:cont|contador_am[8], contador:cont|contador_am[9],   ;
-;                            ;                         ; contador:cont|contador_am[10], contador:cont|contador_am[11], ;
-;                            ;                         ; contador:cont|contador_am[12], contador:cont|contador_am[13], ;
-;                            ;                         ; contador:cont|contador_am[14], contador:cont|contador_am[15], ;
-;                            ;                         ; contador:cont|contador_am[16], contador:cont|contador_am[17], ;
-;                            ;                         ; contador:cont|contador_am[18], contador:cont|contador_am[19], ;
-;                            ;                         ; contador:cont|contador_am[20], contador:cont|contador_am[21], ;
-;                            ;                         ; contador:cont|contador_am[22], contador:cont|contador_am[23], ;
-;                            ;                         ; contador:cont|contador_am[24], contador:cont|contador_am[25], ;
-;                            ;                         ; contador:cont|contador_am[26], contador:cont|contador_am[27], ;
-;                            ;                         ; contador:cont|contador_am[28], contador:cont|contador_am[29], ;
-;                            ;                         ; contador:cont|contador_am[30], contador:cont|contador_am[31]  ;
-+----------------------------+-------------------------+---------------------------------------------------------------+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; contador:cont|contador_am[0]           ; Stuck at GND due to stuck port data_in ;
+; btn_key:chave_chave_b3|cont[1..31]     ; Stuck at GND due to stuck port data_in ;
+; btn_key:chave_chave_b4|cont[1..31]     ; Stuck at GND due to stuck port data_in ;
+; btn_key:chave_chave_b3|cont[0]         ; Merged with btn_key:chave_chave_b3|key ;
+; btn_key:chave_chave_b4|cont[0]         ; Merged with btn_key:chave_chave_b4|key ;
+; Total Number of Removed Registers = 65 ;                                        ;
++----------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -422,14 +401,52 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 77    ;
+; Total registers                              ; 221   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Synchronous Load   ; 4     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 88    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; contador:cont|contador_am[9]            ; 5       ;
+; contador:cont|contador_fm[9]            ; 6       ;
+; contador:cont|contador_fm[8]            ; 6       ;
+; contador:cont|contador_fm[6]            ; 8       ;
+; contador:cont|contador_fm[5]            ; 7       ;
+; contador:cont|contador_am[4]            ; 8       ;
+; contador:cont|contador_am[3]            ; 8       ;
+; contador:cont|contador_fm[3]            ; 7       ;
+; contador:cont|contador_am[2]            ; 8       ;
+; contador:cont|contador_fm[1]            ; 7       ;
+; contador:cont|contador_fm[0]            ; 7       ;
+; Total number of inverted registers = 11 ;         ;
++-----------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Digital_Radio_Interface|btn_key:chave_chave_b3|cont[11]               ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Digital_Radio_Interface|btn_key:chave_chave_b4|cont[3]                ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |Digital_Radio_Interface|contador:cont|divisor_clock:clock2Hz|cont[0]  ;
+; 3:1                ; 19 bits   ; 38 LEs        ; 19 LEs               ; 19 LEs                 ; Yes        ; |Digital_Radio_Interface|debounce:debounce_b3|counter_out[0]           ;
+; 3:1                ; 19 bits   ; 38 LEs        ; 19 LEs               ; 19 LEs                 ; Yes        ; |Digital_Radio_Interface|debounce:debounce_b4|counter_out[7]           ;
+; 4:1                ; 25 bits   ; 50 LEs        ; 50 LEs               ; 0 LEs                  ; Yes        ; |Digital_Radio_Interface|contador:cont|divisor_clock:clock2Hz|cont[17] ;
+; 5:1                ; 25 bits   ; 75 LEs        ; 50 LEs               ; 25 LEs                 ; Yes        ; |Digital_Radio_Interface|contador:cont|contador_fm[30]                 ;
+; 5:1                ; 27 bits   ; 81 LEs        ; 54 LEs               ; 27 LEs                 ; Yes        ; |Digital_Radio_Interface|contador:cont|contador_am[31]                 ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; Yes        ; |Digital_Radio_Interface|contador:cont|contador_fm[0]                  ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |Digital_Radio_Interface|contador:cont|contador_am[9]                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------+
@@ -467,14 +484,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------------+----------------+------------------------+
 ; Parameter Name         ; Value          ; Type                   ;
 +------------------------+----------------+------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                ;
-; LPM_WIDTHD             ; 32             ; Untyped                ;
-; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
-; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_WIDTHN             ; 11             ; Untyped                ;
+; LPM_WIDTHD             ; 11             ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
 ; LPM_PIPELINE           ; 0              ; Untyped                ;
-; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
 ; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
-; CBXI_PARAMETER         ; lpm_divide_cqo ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_ecm ; Untyped                ;
 ; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
 ; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
 ; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
@@ -490,14 +507,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------------+----------------+------------------------+
 ; Parameter Name         ; Value          ; Type                   ;
 +------------------------+----------------+------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                ;
+; LPM_WIDTHN             ; 13             ; Untyped                ;
 ; LPM_WIDTHD             ; 5              ; Untyped                ;
 ; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
 ; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
 ; LPM_PIPELINE           ; 0              ; Untyped                ;
 ; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
 ; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
-; CBXI_PARAMETER         ; lpm_divide_p0p ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_o0p ; Untyped                ;
 ; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
 ; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
 ; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
@@ -513,14 +530,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------------+----------------+------------------------+
 ; Parameter Name         ; Value          ; Type                   ;
 +------------------------+----------------+------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                ;
-; LPM_WIDTHD             ; 32             ; Untyped                ;
-; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
-; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_WIDTHN             ; 8              ; Untyped                ;
+; LPM_WIDTHD             ; 8              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
 ; LPM_PIPELINE           ; 0              ; Untyped                ;
-; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
 ; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
-; CBXI_PARAMETER         ; lpm_divide_cqo ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_q9m ; Untyped                ;
 ; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
 ; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
 ; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
@@ -536,14 +553,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------------+----------------+------------------------+
 ; Parameter Name         ; Value          ; Type                   ;
 +------------------------+----------------+------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                ;
+; LPM_WIDTHN             ; 10             ; Untyped                ;
 ; LPM_WIDTHD             ; 5              ; Untyped                ;
 ; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
 ; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
 ; LPM_PIPELINE           ; 0              ; Untyped                ;
 ; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
 ; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
-; CBXI_PARAMETER         ; lpm_divide_p0p ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_l0p ; Untyped                ;
 ; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
 ; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
 ; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
@@ -559,14 +576,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------------+----------------+------------------------+
 ; Parameter Name         ; Value          ; Type                   ;
 +------------------------+----------------+------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                ;
-; LPM_WIDTHD             ; 32             ; Untyped                ;
-; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
-; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_WIDTHN             ; 5              ; Untyped                ;
+; LPM_WIDTHD             ; 5              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
 ; LPM_PIPELINE           ; 0              ; Untyped                ;
-; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
 ; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
-; CBXI_PARAMETER         ; lpm_divide_cqo ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_k9m ; Untyped                ;
 ; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
 ; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
 ; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
@@ -582,14 +599,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------------+----------------+------------------------+
 ; Parameter Name         ; Value          ; Type                   ;
 +------------------------+----------------+------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                ;
+; LPM_WIDTHN             ; 7              ; Untyped                ;
 ; LPM_WIDTHD             ; 5              ; Untyped                ;
 ; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
 ; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
 ; LPM_PIPELINE           ; 0              ; Untyped                ;
 ; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
 ; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
-; CBXI_PARAMETER         ; lpm_divide_p0p ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_bvo ; Untyped                ;
 ; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
 ; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
 ; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
@@ -605,14 +622,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------------+----------------+------------------------+
 ; Parameter Name         ; Value          ; Type                   ;
 +------------------------+----------------+------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                ;
-; LPM_WIDTHD             ; 32             ; Untyped                ;
-; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
-; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_WIDTHN             ; 1              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
 ; LPM_PIPELINE           ; 0              ; Untyped                ;
-; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
 ; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
-; CBXI_PARAMETER         ; lpm_divide_cqo ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_f9m ; Untyped                ;
 ; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
 ; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
 ; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
@@ -623,15 +640,42 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++-------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: contador:cont|divisor_clock:clock2Hz|lpm_divide:Mod0 ;
++------------------------+----------------+-------------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                        ;
++------------------------+----------------+-------------------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                                     ;
+; LPM_WIDTHD             ; 32             ; Untyped                                                     ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                                     ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                                     ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                     ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                                     ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                     ;
+; CBXI_PARAMETER         ; lpm_divide_cqo ; Untyped                                                     ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                     ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                     ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                                ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                                ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                              ;
++------------------------+----------------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +-------------------------------------------------+
 ; Port Connectivity Checks: "lcd:lcd_map"         ;
 +---------------+-------+----------+--------------+
 ; Port          ; Type  ; Severity ; Details      ;
 +---------------+-------+----------+--------------+
-; d1[7]         ; Input ; Info     ; Stuck at GND ;
-; d2[7]         ; Input ; Info     ; Stuck at GND ;
-; d3[7]         ; Input ; Info     ; Stuck at GND ;
-; d4[7]         ; Input ; Info     ; Stuck at GND ;
+; d1[5..4]      ; Input ; Info     ; Stuck at VCC ;
+; d1[7..6]      ; Input ; Info     ; Stuck at GND ;
+; d2[5..4]      ; Input ; Info     ; Stuck at VCC ;
+; d2[7..6]      ; Input ; Info     ; Stuck at GND ;
+; d3[5..4]      ; Input ; Info     ; Stuck at VCC ;
+; d3[7..6]      ; Input ; Info     ; Stuck at GND ;
+; d4[5..4]      ; Input ; Info     ; Stuck at VCC ;
+; d4[7..6]      ; Input ; Info     ; Stuck at GND ;
 ; m1[7]         ; Input ; Info     ; Stuck at GND ;
 ; m1[6]         ; Input ; Info     ; Stuck at VCC ;
 ; m1[5]         ; Input ; Info     ; Stuck at GND ;
@@ -662,22 +706,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------------+-------+----------+--------------+
 
 
-+------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "debounce:debounce_b4"                                                                 ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-; Port   ; Type   ; Severity ; Details                                                                             ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-; result ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "debounce:debounce_b3"                                                                 ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-; Port   ; Type   ; Severity ; Details                                                                             ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-; result ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "contador:cont"                                                                                 ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; estacao[31..11] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -685,23 +720,25 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 28                          ;
-; cycloneiii_ff         ; 77                          ;
-;     plain             ; 77                          ;
-; cycloneiii_lcell_comb ; 5160                        ;
-;     arith             ; 1711                        ;
-;         1 data inputs ; 30                          ;
-;         2 data inputs ; 178                         ;
-;         3 data inputs ; 1503                        ;
-;     normal            ; 3449                        ;
-;         0 data inputs ; 132                         ;
-;         1 data inputs ; 44                          ;
-;         2 data inputs ; 1486                        ;
+; boundary_port         ; 18                          ;
+; cycloneiii_ff         ; 221                         ;
+;     ENA               ; 88                          ;
+;     SLD               ; 4                           ;
+;     plain             ; 129                         ;
+; cycloneiii_lcell_comb ; 1898                        ;
+;     arith             ; 652                         ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 275                         ;
+;         3 data inputs ; 374                         ;
+;     normal            ; 1246                        ;
+;         0 data inputs ; 45                          ;
+;         1 data inputs ; 15                          ;
+;         2 data inputs ; 465                         ;
 ;         3 data inputs ; 142                         ;
-;         4 data inputs ; 1645                        ;
+;         4 data inputs ; 579                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 465.20                      ;
-; Average LUT depth     ; 445.11                      ;
+; Max LUT depth         ; 102.10                      ;
+; Average LUT depth     ; 51.01                       ;
 +-----------------------+-----------------------------+
 
 
@@ -710,7 +747,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:10     ;
+; Top            ; 00:00:05     ;
 +----------------+--------------+
 
 
@@ -720,10 +757,9 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Tue Aug 10 15:57:55 2021
+    Info: Processing started: Sun Aug 15 16:59:11 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Digital_Radio_Interface -c Digital_Radio_Interface
-Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (20032): Parallel compilation is enabled and will use up to 4 processors
 Info (12021): Found 2 design units, including 1 entities, in source file lcd.vhd
     Info (12022): Found design unit 1: lcd-hardware File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/lcd.vhd Line: 39
     Info (12023): Found entity 1: lcd File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/lcd.vhd Line: 24
@@ -740,24 +776,21 @@ Info (12021): Found 2 design units, including 1 entities, in source file divisor
     Info (12022): Found design unit 1: divisor_clock-divisao File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/divisor_clock.vhd Line: 11
     Info (12023): Found entity 1: divisor_clock File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/divisor_clock.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file digital_radio_interface.vhd
-    Info (12022): Found design unit 1: Digital_Radio_Interface-main File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 21
+    Info (12022): Found design unit 1: Digital_Radio_Interface-main File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 23
     Info (12023): Found entity 1: Digital_Radio_Interface File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file btn_key.vhd
     Info (12022): Found design unit 1: btn_key-hardware File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/btn_key.vhd Line: 11
     Info (12023): Found entity 1: btn_key File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/btn_key.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file lcd2.vhd
+    Info (12022): Found design unit 1: lcd2-controller File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/lcd2.vhd Line: 55
+    Info (12023): Found entity 1: lcd2 File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/lcd2.vhd Line: 45
 Info (12127): Elaborating entity "Digital_Radio_Interface" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at Digital_Radio_Interface.vhd(29): used implicit default value for signal "b3_d" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 29
-Warning (10541): VHDL Signal Declaration warning at Digital_Radio_Interface.vhd(29): used implicit default value for signal "b4_d" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 29
-Info (12128): Elaborating entity "debounce" for hierarchy "debounce:debounce_b3" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 44
-Info (12128): Elaborating entity "btn_key" for hierarchy "btn_key:chave_chave_b3" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 47
-Info (12128): Elaborating entity "contador" for hierarchy "contador:cont" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 52
-Warning (10492): VHDL Process Statement warning at contador.vhd(27): signal "enable" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/contador.vhd Line: 27
-Warning (10492): VHDL Process Statement warning at contador.vhd(59): signal "s1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/contador.vhd Line: 59
-Warning (10492): VHDL Process Statement warning at contador.vhd(60): signal "contador_am" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/contador.vhd Line: 60
-Warning (10492): VHDL Process Statement warning at contador.vhd(62): signal "contador_fm" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/contador.vhd Line: 62
+Info (12128): Elaborating entity "debounce" for hierarchy "debounce:debounce_b3" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 50
+Info (12128): Elaborating entity "btn_key" for hierarchy "btn_key:chave_chave_b3" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 53
+Info (12128): Elaborating entity "contador" for hierarchy "contador:cont" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 62
 Info (12128): Elaborating entity "divisor_clock" for hierarchy "contador:cont|divisor_clock:clock2Hz" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/contador.vhd Line: 23
 Warning (10540): VHDL Signal Declaration warning at divisor_clock.vhd(14): used explicit default value for signal "N" because signal was never assigned a value File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/divisor_clock.vhd Line: 14
-Info (12128): Elaborating entity "lcd" for hierarchy "lcd:lcd_map" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 168
+Info (12129): Elaborating entity "lcd" using architecture "A:hardware" for hierarchy "lcd:lcd_map" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 189
 Warning (10492): VHDL Process Statement warning at lcd.vhd(269): signal "M1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/lcd.vhd Line: 269
 Warning (10492): VHDL Process Statement warning at lcd.vhd(274): signal "M2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/lcd.vhd Line: 274
 Warning (10492): VHDL Process Statement warning at lcd.vhd(279): signal "M3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/lcd.vhd Line: 279
@@ -769,16 +802,116 @@ Warning (10492): VHDL Process Statement warning at lcd.vhd(352): signal "D2" is 
 Warning (10492): VHDL Process Statement warning at lcd.vhd(357): signal "D3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/lcd.vhd Line: 357
 Warning (10492): VHDL Process Statement warning at lcd.vhd(362): signal "D4" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/lcd.vhd Line: 362
 Warning (10492): VHDL Process Statement warning at lcd.vhd(368): signal "S1_Freq" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/lcd.vhd Line: 368
-Info (278001): Inferred 7 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 58
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 60
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod1" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div1" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 63
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod2" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 64
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div2" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 66
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod3" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 67
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 58
-Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 58
+Info (278001): Inferred 8 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 70
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 75
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod1" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 76
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div1" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 81
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod2" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 82
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div2" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 87
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod3" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 88
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "contador:cont|divisor_clock:clock2Hz|Mod0" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/divisor_clock.vhd Line: 23
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 70
+Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 70
+    Info (12134): Parameter "LPM_WIDTHN" = "11"
+    Info (12134): Parameter "LPM_WIDTHD" = "11"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ecm.tdf
+    Info (12023): Found entity 1: lpm_divide_ecm File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/lpm_divide_ecm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_3nh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_3nh File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/sign_div_unsign_3nh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_q9f.tdf
+    Info (12023): Found entity 1: alt_u_div_q9f File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/alt_u_div_q9f.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
+    Info (12023): Found entity 1: add_sub_7pc File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/add_sub_7pc.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
+    Info (12023): Found entity 1: add_sub_8pc File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/add_sub_8pc.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div0" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 75
+Info (12133): Instantiated megafunction "lpm_divide:Div0" with the following parameter: File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 75
+    Info (12134): Parameter "LPM_WIDTHN" = "13"
+    Info (12134): Parameter "LPM_WIDTHD" = "5"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_o0p.tdf
+    Info (12023): Found entity 1: lpm_divide_o0p File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/lpm_divide_o0p.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_jbg.tdf
+    Info (12023): Found entity 1: abs_divider_jbg File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/abs_divider_jbg.tdf Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_47f.tdf
+    Info (12023): Found entity 1: alt_u_div_47f File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/alt_u_div_47f.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_2v9.tdf
+    Info (12023): Found entity 1: lpm_abs_2v9 File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/lpm_abs_2v9.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_h0a.tdf
+    Info (12023): Found entity 1: lpm_abs_h0a File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/lpm_abs_h0a.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod1" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 76
+Info (12133): Instantiated megafunction "lpm_divide:Mod1" with the following parameter: File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 76
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "8"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_q9m.tdf
+    Info (12023): Found entity 1: lpm_divide_q9m File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/lpm_divide_q9m.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_fkh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_fkh File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/sign_div_unsign_fkh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_i4f.tdf
+    Info (12023): Found entity 1: alt_u_div_i4f File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/alt_u_div_i4f.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div1" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 81
+Info (12133): Instantiated megafunction "lpm_divide:Div1" with the following parameter: File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 81
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "5"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_l0p.tdf
+    Info (12023): Found entity 1: lpm_divide_l0p File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/lpm_divide_l0p.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_gbg.tdf
+    Info (12023): Found entity 1: abs_divider_gbg File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/abs_divider_gbg.tdf Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_u6f.tdf
+    Info (12023): Found entity 1: alt_u_div_u6f File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/alt_u_div_u6f.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_e0a.tdf
+    Info (12023): Found entity 1: lpm_abs_e0a File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/lpm_abs_e0a.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod2" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 82
+Info (12133): Instantiated megafunction "lpm_divide:Mod2" with the following parameter: File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 82
+    Info (12134): Parameter "LPM_WIDTHN" = "5"
+    Info (12134): Parameter "LPM_WIDTHD" = "5"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_k9m.tdf
+    Info (12023): Found entity 1: lpm_divide_k9m File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/lpm_divide_k9m.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_9kh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_9kh File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/sign_div_unsign_9kh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_64f.tdf
+    Info (12023): Found entity 1: alt_u_div_64f File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/alt_u_div_64f.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div2" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 87
+Info (12133): Instantiated megafunction "lpm_divide:Div2" with the following parameter: File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 87
+    Info (12134): Parameter "LPM_WIDTHN" = "7"
+    Info (12134): Parameter "LPM_WIDTHD" = "5"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_bvo.tdf
+    Info (12023): Found entity 1: lpm_divide_bvo File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/lpm_divide_bvo.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_6ag.tdf
+    Info (12023): Found entity 1: abs_divider_6ag File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/abs_divider_6ag.tdf Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_a4f.tdf
+    Info (12023): Found entity 1: alt_u_div_a4f File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/alt_u_div_a4f.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_4v9.tdf
+    Info (12023): Found entity 1: lpm_abs_4v9 File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/lpm_abs_4v9.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod3" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 88
+Info (12133): Instantiated megafunction "lpm_divide:Mod3" with the following parameter: File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 88
+    Info (12134): Parameter "LPM_WIDTHN" = "1"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_f9m.tdf
+    Info (12023): Found entity 1: lpm_divide_f9m File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/lpm_divide_f9m.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_7kh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_7kh File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/sign_div_unsign_7kh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_24f.tdf
+    Info (12023): Found entity 1: alt_u_div_24f File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/alt_u_div_24f.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "contador:cont|divisor_clock:clock2Hz|lpm_divide:Mod0" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/divisor_clock.vhd Line: 23
+Info (12133): Instantiated megafunction "contador:cont|divisor_clock:clock2Hz|lpm_divide:Mod0" with the following parameter: File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/divisor_clock.vhd Line: 23
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "32"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
@@ -790,96 +923,23 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/abs_
     Info (12023): Found entity 1: abs_divider_4dg File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/abs_divider_4dg.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_6af.tdf
     Info (12023): Found entity 1: alt_u_div_6af File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/alt_u_div_6af.tdf Line: 27
-Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
-    Info (12023): Found entity 1: add_sub_7pc File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/add_sub_7pc.tdf Line: 23
-Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
-    Info (12023): Found entity 1: add_sub_8pc File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/add_sub_8pc.tdf Line: 23
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_i0a.tdf
     Info (12023): Found entity 1: lpm_abs_i0a File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/lpm_abs_i0a.tdf Line: 25
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Div0" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 60
-Info (12133): Instantiated megafunction "lpm_divide:Div0" with the following parameter: File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 60
-    Info (12134): Parameter "LPM_WIDTHN" = "32"
-    Info (12134): Parameter "LPM_WIDTHD" = "5"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
-    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_p0p.tdf
-    Info (12023): Found entity 1: lpm_divide_p0p File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/lpm_divide_p0p.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_kbg.tdf
-    Info (12023): Found entity 1: abs_divider_kbg File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/abs_divider_kbg.tdf Line: 29
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_67f.tdf
-    Info (12023): Found entity 1: alt_u_div_67f File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/alt_u_div_67f.tdf Line: 27
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_2v9.tdf
-    Info (12023): Found entity 1: lpm_abs_2v9 File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/lpm_abs_2v9.tdf Line: 25
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod1" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-Info (12133): Instantiated megafunction "lpm_divide:Mod1" with the following parameter: File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (12134): Parameter "LPM_WIDTHN" = "32"
-    Info (12134): Parameter "LPM_WIDTHD" = "32"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
-    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
-Info (13014): Ignored 136 buffer(s)
-    Info (13016): Ignored 136 CARRY_SUM buffer(s)
+Info (13014): Ignored 55 buffer(s)
+    Info (13016): Ignored 55 CARRY_SUM buffer(s)
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "estacao_saida[3]" is stuck at VCC File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 13
-    Warning (13410): Pin "estacao_saida[7]" is stuck at GND File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 13
-    Warning (13410): Pin "estacao_saida[9]" is stuck at VCC File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 13
-    Warning (13410): Pin "estacao_saida[10]" is stuck at GND File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 13
-    Warning (13410): Pin "estacao_saida[11]" is stuck at GND File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 13
     Warning (13410): Pin "RW" is stuck at GND File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 14
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 33 registers lost all their fanouts during netlist optimizations.
-Info (17016): Found the following redundant logic cells in design
-    Info (17048): Logic cell "Add2~0" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 60
-    Info (17048): Logic cell "Add2~2" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 60
-    Info (17048): Logic cell "Add2~4" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 60
-    Info (17048): Logic cell "Add2~6" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 60
-    Info (17048): Logic cell "Add4~0" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (17048): Logic cell "Add4~2" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (17048): Logic cell "Add4~4" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (17048): Logic cell "Add4~6" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (17048): Logic cell "Add4~8" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (17048): Logic cell "Add4~10" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (17048): Logic cell "Add4~12" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (17048): Logic cell "Add4~14" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (17048): Logic cell "Add4~16" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (17048): Logic cell "Add4~18" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (17048): Logic cell "Add4~20" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (17048): Logic cell "Add4~22" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (17048): Logic cell "Add4~24" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (17048): Logic cell "Add4~26" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (17048): Logic cell "Add4~28" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (17048): Logic cell "Add4~30" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (17048): Logic cell "Add4~32" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (17048): Logic cell "Add4~34" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (17048): Logic cell "Add4~36" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (17048): Logic cell "Add4~38" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (17048): Logic cell "Add4~40" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (17048): Logic cell "Add4~42" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (17048): Logic cell "Add4~44" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (17048): Logic cell "Add4~46" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (17048): Logic cell "Add4~48" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (17048): Logic cell "Add4~50" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (17048): Logic cell "Add4~52" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (17048): Logic cell "Add4~54" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (17048): Logic cell "Add4~56" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (17048): Logic cell "Add4~58" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (17048): Logic cell "Add4~60" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 61
-    Info (17048): Logic cell "Add2~12" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 60
-    Info (17048): Logic cell "lpm_divide:Mod1|lpm_divide_cqo:auto_generated|abs_divider_4dg:divider|alt_u_div_6af:divider|add_sub_31_result_int[0]~64" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/db/alt_u_div_6af.tdf Line: 152
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 2 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "b3" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 10
-    Warning (15610): No output dependent on input pin "b4" File: D:/GitHub/Despertador_AHDL/Digital_Radio_Interface/Digital_Radio_Interface.vhd Line: 11
-Info (21057): Implemented 5252 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1986 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
-    Info (21059): Implemented 23 output pins
-    Info (21061): Implemented 5224 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 29 warnings
-    Info: Peak virtual memory: 712 megabytes
-    Info: Processing ended: Tue Aug 10 15:58:19 2021
-    Info: Elapsed time: 00:00:24
-    Info: Total CPU time (on all processors): 00:00:34
+    Info (21059): Implemented 13 output pins
+    Info (21061): Implemented 1968 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 14 warnings
+    Info: Peak virtual memory: 701 megabytes
+    Info: Processing ended: Sun Aug 15 16:59:28 2021
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:28
 
 
