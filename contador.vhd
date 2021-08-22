@@ -17,8 +17,8 @@ END contador;
 
 ARCHITECTURE contando OF contador is
 	SIGNAL freq : std_logic;
-	SIGNAL contador_am : integer := 540;
-	SIGNAL contador_fm : integer := 875;
+	SIGNAL contador_am : integer range 540 to 1600 := 540;
+	SIGNAL contador_fm : integer range 875 to 1080 := 875;
 BEGIN
 	clock2Hz : entity work.divisor_clock PORT MAP(clk => clk, clock => freq);		
 	

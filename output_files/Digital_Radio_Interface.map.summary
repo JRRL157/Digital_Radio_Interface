@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Sun Aug 15 16:59:28 2021
+Analysis & Synthesis Status : Successful - Wed Aug 18 21:49:22 2021
 Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 Revision Name : Digital_Radio_Interface
 Top-level Entity Name : Digital_Radio_Interface
 Family : Cyclone IV E
-Total logic elements : 1,958
-    Total combinational functions : 1,896
-    Dedicated logic registers : 221
-Total registers : 221
-Total pins : 18
+Total logic elements : 2,000
+    Total combinational functions : 1,906
+    Dedicated logic registers : 266
+Total registers : 266
+Total pins : 19
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

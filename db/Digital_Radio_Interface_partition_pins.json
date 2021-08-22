@@ -52,6 +52,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "led4",
+					"strict" : false
+				},
+				{
 					"name" : "s1",
 					"strict" : false
 				},

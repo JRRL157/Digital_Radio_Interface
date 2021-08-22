@@ -27,9 +27,9 @@ BEGIN
 		END IF;		
 		
 		IF (contador >= 100_000_000) THEN
-			resposta <= '1';
-		ELSE
 			resposta <= '0';
+		ELSE
+			resposta <= '1';
 		END IF;
 	END PROCESS;
 

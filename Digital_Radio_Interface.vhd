@@ -15,7 +15,7 @@ ENTITY Digital_Radio_Interface IS
 		E				  : OUT bit;
 		DB				  : OUT bit_vector(7 DOWNTO 0);
 		
-		led1,led2 : OUT std_logic
+		led1,led2,led4 : OUT std_logic
 	);
 
 END Digital_Radio_Interface;
@@ -26,10 +26,18 @@ ARCHITECTURE main OF Digital_Radio_Interface IS
 	-- alto demais!
 	
 	SIGNAL aux4,aux3,aux2,aux1 : integer range 0 to 9;
-	SIGNAL estacao_variable : integer range 0 to 1600;
+	SIGNAL estacao_variable : integer range 540 to 1600 := 875;
+	
+	SIGNAL estacao_variable_cont : integer range 540 to 1600; --Modo de contagem
+	SIGNAL estacao_variable_list : integer range 540 to 1600; --Modo de listagem
+	
+	--Variáveis extras para a conversão
 	SIGNAL estacao_variable2 : integer range 0 to 160;
 	SIGNAL estacao_variable3 : integer range 0 to 16;
 	SIGNAL estacao_variable4 : integer range 0 to 1;
+	
+	
+	--Habilita o crescer/decrescer do modo rádio
 	SIGNAL ena : std_logic;
 	
 	signal b3_d,b4_d : std_logic;
@@ -46,6 +54,13 @@ ARCHITECTURE main OF Digital_Radio_Interface IS
 	SIGNAL E_x : bit;
 	SIGNAL DB_x : bit_vector(7 DOWNTO 0);
 	
+	--Guarda as estações
+	SIGNAL AM_Slot1,AM_Slot2 : integer range 0 to 1600;
+	SIGNAL FM_Slot1,FM_Slot2 : integer range 0 to 1600;
+	
+	--Verifica se os botões b3_d e b4_d foram pressionados por 2s ou mais
+	SIGNAL time_pressed : std_logic;
+	
 BEGIN	
 	debounce_b3 : entity work.debounce PORT MAP(clk => clk, button => b3,result => b3_d);
 	debounce_b4 : entity work.debounce PORT MAP(clk => clk, button => b4,result => b4_d);
@@ -59,12 +74,50 @@ BEGIN
 		
 	ena <= (s2) AND (chave_b3 XOR chave_b4);
 		
-	cont : entity work.contador PORT MAP(clk => clk, s1 => s1, b3 => chave_b3,b4 => chave_b4,estacao => estacao_variable,enable => ena);
+	cont : entity work.contador PORT MAP(clk => clk, s1 => s1, b3 => chave_b3,b4 => chave_b4,estacao => estacao_variable_cont,enable => ena);
+	
+	--Gravando as estações favoritas em variáveis
+	process(s2,s1,estacao_variable_cont) is
+	begin
+		if falling_edge(s2) then
+			if (s1 = '0') then --AM
+				if (b3_d = '0' AND b4_d = '1') then --B3 pressionado
+					AM_Slot1 <= estacao_variable_cont;
+				elsif(b3_d = '1' AND b4_d = '0') then --B4 pressionado
+					AM_Slot2 <= estacao_variable_cont;
+				end if;
+			else --FM
+				if (b3_d = '0' AND b4_d = '1') then --B3 pressionado
+					FM_Slot1 <= estacao_variable_cont;
+				elsif (b3_d = '1' AND b4_d = '0') then --B4 pressionado
+					FM_Slot2 <= estacao_variable_cont;
+				end if;
+			end if;
+		end if;
+	end process;
+	
+	--Listando as estações favoritas quando b3_d e b4_d estão pressionados por 2s ou mais
+	tempo_pressionado_port : entity work.tempo_pressionado PORT MAP(clk => clk, btn1 => b3_d,btn2 => b4_d,res =>time_pressed);
+	
+	led4 <= time_pressed;
+	
+	listagem_port : entity work.listar_estacoes PORT MAP(clk => clk,estacao_am_1 => AM_Slot1,estacao_am_2 => AM_Slot2,
+																		 estacao_fm_1 => FM_Slot1,estacao_fm_2 => FM_Slot2,tempo_pressionado => time_pressed,
+																		 modo => s1, estacao_selecionada => estacao_variable_list);
+					
 	
 	--estacao_saida <= std_logic_vector(to_unsigned(estacao_variable,estacao_saida'length));
 	
-	--Extraindo os dígitos do estacao_saida
+	process(estacao_variable_cont,estacao_variable_list) is
+	begin
+		if(time_pressed = '0') then
+			estacao_variable <= estacao_variable_list;
+		else
+			estacao_variable <= estacao_variable_cont;
+		end if;	
+	end process;		
 	
+	--Extraindo os dígitos do estacao_saida	
 	process(estacao_variable,aux4) is
 	begin					
 		aux4 <= estacao_variable MOD 10;		
@@ -181,14 +234,13 @@ BEGIN
 			M2 <= X"41"; --A
 			M3 <= X"44"; --D
 			M4 <= X"49"; --I
-			M5 <= X"4F"; --O			
+			M5 <= X"4F"; --O
 		END IF;
 	end process;
 	
 	--Mandando para o LCD
 	lcd_map : entity work.lcd(hardware) PORT MAP(clk => to_bit(clk), D1 => D1, D2 => D2,D3 => D3,D4 => D4,
 	M1 => M1, M2 => M2, M3 => M3, M4 => M4, M5 => M5,S1_Modo => S1_Modo,S1_Freq => S1_Freq,E => E_x,RS => RS_x,RW => RW_x,DB => DB_x);
-
 	
 	--Mandando para a saída
 	RS <= RS_x;
