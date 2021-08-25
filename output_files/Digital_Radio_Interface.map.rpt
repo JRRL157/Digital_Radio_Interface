@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Digital_Radio_Interface
-Wed Aug 25 12:35:44 2021
+Wed Aug 25 12:42:41 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -62,15 +62,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Aug 25 12:35:44 2021       ;
+; Analysis & Synthesis Status        ; Successful - Wed Aug 25 12:42:40 2021       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; Digital_Radio_Interface                     ;
 ; Top-level Entity Name              ; Digital_Radio_Interface                     ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 2,013                                       ;
-;     Total combinational functions  ; 1,949                                       ;
-;     Dedicated logic registers      ; 237                                         ;
-; Total registers                    ; 237                                         ;
+; Total logic elements               ; 2,036                                       ;
+;     Total combinational functions  ; 1,972                                       ;
+;     Dedicated logic registers      ; 238                                         ;
+; Total registers                    ; 238                                         ;
 ; Total pins                         ; 20                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -179,7 +179,7 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
 ;     Processor 3            ;   0.0%      ;
 ;     Processor 4            ;   0.0%      ;
 +----------------------------+-------------+
@@ -241,20 +241,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------------------------------------------+
 ; Resource                                    ; Usage                                         ;
 +---------------------------------------------+-----------------------------------------------+
-; Estimated Total logic elements              ; 2,013                                         ;
+; Estimated Total logic elements              ; 2,036                                         ;
 ;                                             ;                                               ;
-; Total combinational functions               ; 1949                                          ;
+; Total combinational functions               ; 1972                                          ;
 ; Logic element usage by number of LUT inputs ;                                               ;
-;     -- 4 input functions                    ; 610                                           ;
-;     -- 3 input functions                    ; 550                                           ;
-;     -- <=2 input functions                  ; 789                                           ;
+;     -- 4 input functions                    ; 619                                           ;
+;     -- 3 input functions                    ; 563                                           ;
+;     -- <=2 input functions                  ; 790                                           ;
 ;                                             ;                                               ;
 ; Logic elements by mode                      ;                                               ;
-;     -- normal mode                          ; 1324                                          ;
+;     -- normal mode                          ; 1347                                          ;
 ;     -- arithmetic mode                      ; 625                                           ;
 ;                                             ;                                               ;
-; Total registers                             ; 237                                           ;
-;     -- Dedicated logic registers            ; 237                                           ;
+; Total registers                             ; 238                                           ;
+;     -- Dedicated logic registers            ; 238                                           ;
 ;     -- I/O registers                        ; 0                                             ;
 ;                                             ;                                               ;
 ; I/O pins                                    ; 20                                            ;
@@ -263,8 +263,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                                               ;
 ; Maximum fan-out node                        ; contador2:cont|divisor_clock:clock2Hz|Add0~62 ;
 ; Maximum fan-out                             ; 132                                           ;
-; Total fan-out                               ; 6187                                          ;
-; Average fan-out                             ; 2.78                                          ;
+; Total fan-out                               ; 6268                                          ;
+; Average fan-out                             ; 2.79                                          ;
 +---------------------------------------------+-----------------------------------------------+
 
 
@@ -273,10 +273,10 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
 ; Compilation Hierarchy Node                    ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                         ; Entity Name             ; Library Name ;
 +-----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
-; |Digital_Radio_Interface                      ; 1949 (75)           ; 237 (0)                   ; 0           ; 0            ; 0       ; 0         ; 20   ; 0            ; |Digital_Radio_Interface                                                                                                                                    ; Digital_Radio_Interface ; work         ;
+; |Digital_Radio_Interface                      ; 1972 (75)           ; 238 (0)                   ; 0           ; 0            ; 0       ; 0         ; 20   ; 0            ; |Digital_Radio_Interface                                                                                                                                    ; Digital_Radio_Interface ; work         ;
 ;    |btn_key:chave_chave_b3|                   ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|btn_key:chave_chave_b3                                                                                                             ; btn_key                 ; work         ;
 ;    |btn_key:chave_chave_b4|                   ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|btn_key:chave_chave_b4                                                                                                             ; btn_key                 ; work         ;
-;    |contador2:cont|                           ; 1030 (101)          ; 66 (33)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|contador2:cont                                                                                                                     ; contador2               ; work         ;
+;    |contador2:cont|                           ; 1053 (124)          ; 67 (34)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|contador2:cont                                                                                                                     ; contador2               ; work         ;
 ;       |divisor_clock:clock2Hz|                ; 929 (158)           ; 33 (33)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|contador2:cont|divisor_clock:clock2Hz                                                                                              ; divisor_clock           ; work         ;
 ;          |lpm_divide:Mod0|                    ; 771 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|contador2:cont|divisor_clock:clock2Hz|lpm_divide:Mod0                                                                              ; lpm_divide              ; work         ;
 ;             |lpm_divide_cqo:auto_generated|   ; 771 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Digital_Radio_Interface|contador2:cont|divisor_clock:clock2Hz|lpm_divide:Mod0|lpm_divide_cqo:auto_generated                                                ; lpm_divide_cqo          ; work         ;
@@ -482,12 +482,11 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; listar_estacoes:listagem_port|divisor_clock:clock_div_map|cont[1]  ; Merged with contador2:cont|divisor_clock:clock2Hz|cont[1]  ;
 ; listar_estacoes:listagem_port|divisor_clock:clock_div_map|cont[0]  ; Merged with contador2:cont|divisor_clock:clock2Hz|cont[0]  ;
 ; listar_estacoes:listagem_port|cont[1]                              ; Stuck at GND due to stuck port data_in                     ;
-; contador2:cont|contador_am[0]                                      ; Stuck at GND due to stuck port data_in                     ;
 ; btn_key:chave_chave_b3|cont[1..31]                                 ; Stuck at GND due to stuck port data_in                     ;
 ; btn_key:chave_chave_b4|cont[1..31]                                 ; Stuck at GND due to stuck port data_in                     ;
 ; btn_key:chave_chave_b3|cont[0]                                     ; Merged with btn_key:chave_chave_b3|key                     ;
 ; btn_key:chave_chave_b4|cont[0]                                     ; Merged with btn_key:chave_chave_b4|key                     ;
-; Total Number of Removed Registers = 98                             ;                                                            ;
+; Total Number of Removed Registers = 97                             ;                                                            ;
 +--------------------------------------------------------------------+------------------------------------------------------------+
 
 
@@ -496,9 +495,9 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 237   ;
+; Total registers                              ; 238   ;
 ; Number of registers using Synchronous Clear  ; 32    ;
-; Number of registers using Synchronous Load   ; 15    ;
+; Number of registers using Synchronous Load   ; 16    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 59    ;
@@ -533,18 +532,18 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                              ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------+
 ; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Digital_Radio_Interface|btn_key:chave_chave_b3|cont[12]                ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Digital_Radio_Interface|btn_key:chave_chave_b4|cont[27]                ;
-; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; Yes        ; |Digital_Radio_Interface|listar_estacoes:listagem_port|sel[10]          ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Digital_Radio_Interface|btn_key:chave_chave_b4|cont[26]                ;
+; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; Yes        ; |Digital_Radio_Interface|listar_estacoes:listagem_port|sel[8]           ;
 ; 3:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; Yes        ; |Digital_Radio_Interface|contador2:cont|estacao[1]                      ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |Digital_Radio_Interface|contador2:cont|divisor_clock:clock2Hz|saida    ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |Digital_Radio_Interface|contador2:cont|divisor_clock:clock2Hz|cont[0]  ;
-; 3:1                ; 19 bits   ; 38 LEs        ; 19 LEs               ; 19 LEs                 ; Yes        ; |Digital_Radio_Interface|debounce:debounce_b3|counter_out[14]           ;
-; 3:1                ; 19 bits   ; 38 LEs        ; 19 LEs               ; 19 LEs                 ; Yes        ; |Digital_Radio_Interface|debounce:debounce_b4|counter_out[15]           ;
-; 4:1                ; 26 bits   ; 52 LEs        ; 52 LEs               ; 0 LEs                  ; Yes        ; |Digital_Radio_Interface|contador2:cont|divisor_clock:clock2Hz|cont[13] ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |Digital_Radio_Interface|contador2:cont|contador_fm[10]                 ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |Digital_Radio_Interface|contador2:cont|contador_am[10]                 ;
-; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; Yes        ; |Digital_Radio_Interface|contador2:cont|contador_fm[0]                  ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |Digital_Radio_Interface|contador2:cont|contador_am[4]                  ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |Digital_Radio_Interface|contador2:cont|divisor_clock:clock2Hz|cont[1]  ;
+; 3:1                ; 19 bits   ; 38 LEs        ; 19 LEs               ; 19 LEs                 ; Yes        ; |Digital_Radio_Interface|debounce:debounce_b3|counter_out[13]           ;
+; 3:1                ; 19 bits   ; 38 LEs        ; 19 LEs               ; 19 LEs                 ; Yes        ; |Digital_Radio_Interface|debounce:debounce_b4|counter_out[14]           ;
+; 4:1                ; 26 bits   ; 52 LEs        ; 52 LEs               ; 0 LEs                  ; Yes        ; |Digital_Radio_Interface|contador2:cont|divisor_clock:clock2Hz|cont[14] ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; Yes        ; |Digital_Radio_Interface|contador2:cont|contador_fm[10]                 ;
+; 8:1                ; 5 bits    ; 25 LEs        ; 15 LEs               ; 10 LEs                 ; Yes        ; |Digital_Radio_Interface|contador2:cont|contador_am[10]                 ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 21 LEs               ; 7 LEs                  ; Yes        ; |Digital_Radio_Interface|contador2:cont|contador_fm[9]                  ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; Yes        ; |Digital_Radio_Interface|contador2:cont|contador_am[4]                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------+
 
 
@@ -831,25 +830,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 20                          ;
-; cycloneiii_ff         ; 237                         ;
-;     ENA               ; 59                          ;
+; cycloneiii_ff         ; 238                         ;
+;     ENA               ; 58                          ;
+;     ENA SLD           ; 1                           ;
 ;     SCLR              ; 32                          ;
 ;     SLD               ; 15                          ;
-;     plain             ; 131                         ;
-; cycloneiii_lcell_comb ; 1950                        ;
+;     plain             ; 132                         ;
+; cycloneiii_lcell_comb ; 1973                        ;
 ;     arith             ; 625                         ;
 ;         1 data inputs ; 3                           ;
 ;         2 data inputs ; 223                         ;
 ;         3 data inputs ; 399                         ;
-;     normal            ; 1325                        ;
+;     normal            ; 1348                        ;
 ;         0 data inputs ; 46                          ;
 ;         1 data inputs ; 16                          ;
-;         2 data inputs ; 502                         ;
-;         3 data inputs ; 151                         ;
-;         4 data inputs ; 610                         ;
+;         2 data inputs ; 503                         ;
+;         3 data inputs ; 164                         ;
+;         4 data inputs ; 619                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 100.10                      ;
-; Average LUT depth     ; 51.91                       ;
+; Average LUT depth     ; 51.55                       ;
 +-----------------------+-----------------------------+
 
 
@@ -868,7 +868,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Wed Aug 25 12:35:27 2021
+    Info: Processing started: Wed Aug 25 12:42:23 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Digital_Radio_Interface -c Digital_Radio_Interface
 Info (20032): Parallel compilation is enabled and will use up to 4 processors
 Info (12021): Found 2 design units, including 1 entities, in source file lcd.vhd
@@ -1108,14 +1108,14 @@ Warning (13024): Output pins are stuck at VCC or GND
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 2044 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2067 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 15 output pins
-    Info (21061): Implemented 2024 logic cells
+    Info (21061): Implemented 2047 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 27 warnings
-    Info: Peak virtual memory: 701 megabytes
-    Info: Processing ended: Wed Aug 25 12:35:44 2021
-    Info: Elapsed time: 00:00:17
+    Info: Peak virtual memory: 699 megabytes
+    Info: Processing ended: Wed Aug 25 12:42:41 2021
+    Info: Elapsed time: 00:00:18
     Info: Total CPU time (on all processors): 00:00:29
 
 

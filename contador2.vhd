@@ -74,7 +74,14 @@ BEGIN
 				estacao <= estacao_fav;
 				
 				IF enable = '1' THEN				
+					IF s1 = '0' THEN --AM
+						contador_am <= estacao_fav;
+					ELSE
+						contador_fm <= estacao_fav;
+					END IF;
+					
 					saiu <= '0';
+					
 				END IF;
 			END IF;	
 		END IF;
