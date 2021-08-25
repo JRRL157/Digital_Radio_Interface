@@ -3,39 +3,43 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'clk'
-Slack : -61.600
-TNS   : -2137.992
+Slack : -60.978
+TNS   : -2144.056
 
 Type  : Slow 1200mV 85C Model Setup 'listar_estacoes:listagem_port|divisor_clock:clock_div_map|saida'
-Slack : -4.375
-TNS   : -47.994
+Slack : -3.861
+TNS   : -43.554
 
-Type  : Slow 1200mV 85C Model Setup 'contador:cont|divisor_clock:clock2Hz|saida'
-Slack : -3.398
-TNS   : -62.786
-
-Type  : Slow 1200mV 85C Model Setup 's2'
-Slack : -2.167
-TNS   : -78.616
-
-Type  : Slow 1200mV 85C Model Setup 'lcd:lcd_map|E'
-Slack : -0.650
-TNS   : -10.291
+Type  : Slow 1200mV 85C Model Setup 'contador2:cont|divisor_clock:clock2Hz|saida'
+Slack : -3.429
+TNS   : -78.882
 
 Type  : Slow 1200mV 85C Model Setup 'debounce:debounce_b3|result'
-Slack : 0.114
-TNS   : 0.000
+Slack : -3.064
+TNS   : -89.940
 
 Type  : Slow 1200mV 85C Model Setup 'debounce:debounce_b4|result'
-Slack : 0.114
-TNS   : 0.000
+Slack : -2.730
+TNS   : -40.160
+
+Type  : Slow 1200mV 85C Model Setup 'lcd:lcd_map|E'
+Slack : -0.716
+TNS   : -12.528
 
 Type  : Slow 1200mV 85C Model Hold 'clk'
 Slack : 0.453
 TNS   : 0.000
 
+Type  : Slow 1200mV 85C Model Hold 'contador2:cont|divisor_clock:clock2Hz|saida'
+Slack : 0.453
+TNS   : 0.000
+
 Type  : Slow 1200mV 85C Model Hold 'listar_estacoes:listagem_port|divisor_clock:clock_div_map|saida'
-Slack : 0.465
+Slack : 0.466
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'lcd:lcd_map|E'
+Slack : 0.495
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'debounce:debounce_b3|result'
@@ -46,33 +50,17 @@ Type  : Slow 1200mV 85C Model Hold 'debounce:debounce_b4|result'
 Slack : 0.497
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Hold 'lcd:lcd_map|E'
-Slack : 0.501
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Hold 'contador:cont|divisor_clock:clock2Hz|saida'
-Slack : 0.896
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Hold 's2'
-Slack : 1.366
-TNS   : 0.000
-
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
 Slack : -3.000
 TNS   : -194.823
 
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 's2'
-Slack : -3.000
-TNS   : -65.454
-
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'lcd:lcd_map|E'
 Slack : -1.487
-TNS   : -89.220
+TNS   : -90.707
 
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'contador:cont|divisor_clock:clock2Hz|saida'
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'contador2:cont|divisor_clock:clock2Hz|saida'
 Slack : -1.487
-TNS   : -31.227
+TNS   : -49.071
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'listar_estacoes:listagem_port|divisor_clock:clock_div_map|saida'
 Slack : -1.487
@@ -87,39 +75,39 @@ Slack : -1.487
 TNS   : -1.487
 
 Type  : Slow 1200mV 0C Model Setup 'clk'
-Slack : -56.325
-TNS   : -1945.340
+Slack : -55.766
+TNS   : -1952.425
 
 Type  : Slow 1200mV 0C Model Setup 'listar_estacoes:listagem_port|divisor_clock:clock_div_map|saida'
-Slack : -3.994
-TNS   : -43.718
+Slack : -3.522
+TNS   : -39.573
 
-Type  : Slow 1200mV 0C Model Setup 'contador:cont|divisor_clock:clock2Hz|saida'
+Type  : Slow 1200mV 0C Model Setup 'contador2:cont|divisor_clock:clock2Hz|saida'
 Slack : -3.132
-TNS   : -57.129
-
-Type  : Slow 1200mV 0C Model Setup 's2'
-Slack : -2.001
-TNS   : -76.520
-
-Type  : Slow 1200mV 0C Model Setup 'lcd:lcd_map|E'
-Slack : -0.562
-TNS   : -6.256
+TNS   : -71.546
 
 Type  : Slow 1200mV 0C Model Setup 'debounce:debounce_b3|result'
-Slack : 0.208
-TNS   : 0.000
+Slack : -3.072
+TNS   : -87.041
 
 Type  : Slow 1200mV 0C Model Setup 'debounce:debounce_b4|result'
-Slack : 0.208
-TNS   : 0.000
+Slack : -2.658
+TNS   : -38.093
+
+Type  : Slow 1200mV 0C Model Setup 'lcd:lcd_map|E'
+Slack : -0.583
+TNS   : -8.127
 
 Type  : Slow 1200mV 0C Model Hold 'clk'
 Slack : 0.401
 TNS   : 0.000
 
+Type  : Slow 1200mV 0C Model Hold 'contador2:cont|divisor_clock:clock2Hz|saida'
+Slack : 0.403
+TNS   : 0.000
+
 Type  : Slow 1200mV 0C Model Hold 'listar_estacoes:listagem_port|divisor_clock:clock_div_map|saida'
-Slack : 0.417
+Slack : 0.419
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'debounce:debounce_b3|result'
@@ -131,32 +119,20 @@ Slack : 0.445
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'lcd:lcd_map|E'
-Slack : 0.471
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Hold 'contador:cont|divisor_clock:clock2Hz|saida'
-Slack : 0.842
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Hold 's2'
-Slack : 1.263
+Slack : 0.457
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
 TNS   : -194.823
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 's2'
-Slack : -3.000
-TNS   : -65.454
-
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'lcd:lcd_map|E'
 Slack : -1.487
-TNS   : -89.220
+TNS   : -90.707
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'contador:cont|divisor_clock:clock2Hz|saida'
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'contador2:cont|divisor_clock:clock2Hz|saida'
 Slack : -1.487
-TNS   : -31.227
+TNS   : -49.071
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'listar_estacoes:listagem_port|divisor_clock:clock_div_map|saida'
 Slack : -1.487
@@ -171,39 +147,39 @@ Slack : -1.487
 TNS   : -1.487
 
 Type  : Fast 1200mV 0C Model Setup 'clk'
-Slack : -27.014
-TNS   : -888.191
+Slack : -26.816
+TNS   : -892.588
 
 Type  : Fast 1200mV 0C Model Setup 'listar_estacoes:listagem_port|divisor_clock:clock_div_map|saida'
-Slack : -1.305
-TNS   : -13.700
-
-Type  : Fast 1200mV 0C Model Setup 'contador:cont|divisor_clock:clock2Hz|saida'
-Slack : -0.903
-TNS   : -16.043
-
-Type  : Fast 1200mV 0C Model Setup 's2'
-Slack : -0.247
-TNS   : -5.035
-
-Type  : Fast 1200mV 0C Model Setup 'lcd:lcd_map|E'
-Slack : 0.289
-TNS   : 0.000
+Slack : -1.084
+TNS   : -11.795
 
 Type  : Fast 1200mV 0C Model Setup 'debounce:debounce_b3|result'
-Slack : 0.626
-TNS   : 0.000
+Slack : -1.014
+TNS   : -20.880
+
+Type  : Fast 1200mV 0C Model Setup 'contador2:cont|divisor_clock:clock2Hz|saida'
+Slack : -0.863
+TNS   : -15.336
 
 Type  : Fast 1200mV 0C Model Setup 'debounce:debounce_b4|result'
-Slack : 0.626
+Slack : -0.661
+TNS   : -6.255
+
+Type  : Fast 1200mV 0C Model Setup 'lcd:lcd_map|E'
+Slack : 0.287
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'clk'
 Slack : 0.186
 TNS   : 0.000
 
+Type  : Fast 1200mV 0C Model Hold 'contador2:cont|divisor_clock:clock2Hz|saida'
+Slack : 0.187
+TNS   : 0.000
+
 Type  : Fast 1200mV 0C Model Hold 'lcd:lcd_map|E'
-Slack : 0.194
+Slack : 0.193
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'listar_estacoes:listagem_port|divisor_clock:clock_div_map|saida'
@@ -218,29 +194,17 @@ Type  : Fast 1200mV 0C Model Hold 'debounce:debounce_b4|result'
 Slack : 0.208
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Hold 'contador:cont|divisor_clock:clock2Hz|saida'
-Slack : 0.271
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Hold 's2'
-Slack : 0.343
-TNS   : 0.000
-
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -140.461
-
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 's2'
-Slack : -3.000
-TNS   : -49.465
+TNS   : -140.651
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'lcd:lcd_map|E'
 Slack : -1.000
-TNS   : -60.000
+TNS   : -61.000
 
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'contador:cont|divisor_clock:clock2Hz|saida'
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'contador2:cont|divisor_clock:clock2Hz|saida'
 Slack : -1.000
-TNS   : -21.000
+TNS   : -33.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'listar_estacoes:listagem_port|divisor_clock:clock_div_map|saida'
 Slack : -1.000

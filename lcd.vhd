@@ -25,7 +25,7 @@
 	generic (fclk: natural := 50_000_000); -- 50MHz , cristal do kit EE03
 	port (
 			 --Variáveis que são passadas pelo main
-			 D1,D2,D3,D4 	 : IN bit_vector(7 DOWNTO 0);
+			 D1,D2,D3,D4,D5 	 : IN bit_vector(7 DOWNTO 0);
 			 M1,M2,M3,M4,M5 : IN bit_vector(7 DOWNTO 0);
 			 S1_Freq 		 : IN bit_vector(7 DOWNTO 0);
 			 S1_Modo			 : IN bit_vector(7 DOWNTO 0);
@@ -43,7 +43,7 @@
 		 FunctionSet23,FunctionSet24,FunctionSet25,FunctionSet26,FunctionSet27,ClearDisplay, DisplayControl, EntryMode, 
 		 WriteDatal, WriteData2, WriteData3, WriteData4, WriteData5,WriteData6,WriteData7,WriteData8,WriteData9,WriteData10,WriteData11,
 		 WriteData12,WriteData13,WriteData14,WriteData15,WriteData16,WriteData17,WriteData18,WriteData19, WriteData20, WriteData21, WriteData22,
-		 WriteData23,WriteData24,WriteData25,WriteData26,WriteData27,SetAddress,SetAddress1, ReturnHome);
+		 WriteData23,WriteData24,WriteData25,WriteData26,WriteData27,WriteData28,SetAddress,SetAddress1, ReturnHome);
 		
 		signal pr_state, nx_state: state; 
 		begin
@@ -355,25 +355,30 @@
 			when WriteData23 =>
 			RS<= '1'; RW<= '0';
 			DB <= D3;                    --'0 - D3'
-			nx_state <= WriteData24;
-
+			nx_state <= WriteData24;			
+			
 			when WriteData24 =>
-			RS<= '1'; RW<= '0';
-			DB <= D4;                    --' - D4'
+			RS<= '1'; RW<= '0';			
+			DB <= D4; 						   --' - D4'			
 			nx_state <= WriteData25;
-
+									
 
 			when WriteData25 =>
-			RS<= '1'; RW<= '0';
-			DB <= S1_Freq;                    --'K -S1'
-			nx_state <= WriteData26; 
-			
+			RS <= '1'; RW <= '0';
+			DB <= D5;
+			nx_state <= WriteData26;
+									
 			when WriteData26 =>
 			RS<= '1'; RW<= '0';
-			DB <= X"48";                    --'H'
+			DB <= S1_Freq;                    --'K -S1'
 			nx_state <= WriteData27; 
 			
 			when WriteData27 =>
+			RS<= '1'; RW<= '0';
+			DB <= X"48";                    --'H'
+			nx_state <= WriteData28; 
+			
+			when WriteData28 =>
 			RS<= '1'; RW<= '0';
 			DB <= X"7A";                    --'Z'
 			nx_state <= ReturnHome; 

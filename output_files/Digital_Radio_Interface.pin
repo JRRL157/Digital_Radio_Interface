@@ -153,7 +153,7 @@ VCCIO5                       : 81        : power  :                   : 2.5V    
 GND                          : 82        : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 83        :        :                   :         : 5         :                
 led4                         : 84        : output : 2.5 V             :         : 5         : Y              
-RESERVED_INPUT_WITH_WEAK_PULLUP : 85        :        :                   :         : 5         :                
+led3                         : 85        : output : 2.5 V             :         : 5         : Y              
 led2                         : 86        : output : 2.5 V             :         : 5         : Y              
 led1                         : 87        : output : 2.5 V             :         : 5         : Y              
 s1                           : 88        : input  : 2.5 V             :         : 5         : Y              

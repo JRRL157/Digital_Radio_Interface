@@ -4,7 +4,7 @@ USE ieee.numeric_std.all;
 
 --B3 e B4 são CHAVES, devem ser tratadas antes de mandar para cá
 
-ENTITY contador IS
+ENTITY contador2 IS
 	PORT(
 		clk : IN std_logic; --Clock de 50Mhz
 		b3 : IN std_logic; --Decrescente
@@ -13,14 +13,14 @@ ENTITY contador IS
 		enable : IN std_logic;
 		estacao : OUT integer --Número da estação
 	);	
-END contador;
+END contador2;
 
-ARCHITECTURE contando OF contador is
+ARCHITECTURE contando OF contador2 is
 	SIGNAL freq : std_logic;
 	SIGNAL contador_am : integer range 540 to 1600 := 540;
 	SIGNAL contador_fm : integer range 875 to 1080 := 875;
 BEGIN
-	clock2Hz : entity work.divisor_clock PORT MAP(clk => clk, clock => freq);
+	clock2Hz : entity work.divisor_clock PORT MAP(clk => clk, clock => freq);		
 	
 	PROCESS(freq,enable,s1,contador_am,contador_fm) IS
 	BEGIN

@@ -15,7 +15,7 @@ ENTITY Digital_Radio_Interface IS
 		E				  : OUT bit;
 		DB				  : OUT bit_vector(7 DOWNTO 0);
 		
-		led1,led2,led4 : OUT std_logic
+		led1,led2,led3,led4 : OUT std_logic
 	);
 
 END Digital_Radio_Interface;
@@ -44,7 +44,7 @@ ARCHITECTURE main OF Digital_Radio_Interface IS
 	signal chave_b3,chave_b4 : std_logic;
 	
 	--Variáveis que irão para o LCD
-	SIGNAL D4,D3,D2,D1 : bit_vector(7 DOWNTO 0);
+	SIGNAL D5,D4,D3,D2,D1 : bit_vector(7 DOWNTO 0);
 	SIGNAL S1_Freq : bit_vector(7 DOWNTO 0) := X"4D";
 	SIGNAL S1_Modo : bit_vector(7 DOWNTO 0) := X"46";	
 	SIGNAL M1,M2,M3,M4,M5 : bit_vector(7 DOWNTO 0);
@@ -61,41 +61,23 @@ ARCHITECTURE main OF Digital_Radio_Interface IS
 	--Verifica se os botões b3_d e b4_d foram pressionados por 2s ou mais
 	SIGNAL time_pressed : std_logic;
 	
+	SIGNAL saiu : std_logic := '0';
+	
 BEGIN	
 	debounce_b3 : entity work.debounce PORT MAP(clk => clk, button => b3,result => b3_d);
 	debounce_b4 : entity work.debounce PORT MAP(clk => clk, button => b4,result => b4_d);
 	
 	chave_chave_b3 : entity work.btn_key PORT MAP(btn => b3_d, key => chave_b3);
-	chave_chave_b4 : entity work.btn_key PORT MAP(btn => b4_d, key => chave_b4);	
+	chave_chave_b4 : entity work.btn_key PORT MAP(btn => b4_d, key => chave_b4);
 	
 	--Testando o aperto do botão no LED
 	led1 <= chave_b3;
 	led2 <= chave_b4;
-		
+			
 	ena <= (s2) AND (chave_b3 XOR chave_b4);
 		
-	cont : entity work.contador PORT MAP(clk => clk, s1 => s1, b3 => chave_b3,b4 => chave_b4,estacao => estacao_variable_cont,enable => ena);
-	
-	--Gravando as estações favoritas em variáveis
-	process(s2,s1,estacao_variable_cont) is
-	begin
-		if falling_edge(s2) then
-			if (s1 = '0') then --AM
-				if (b3_d = '0' AND b4_d = '1') then --B3 pressionado
-					AM_Slot1 <= estacao_variable_cont;
-				elsif(b3_d = '1' AND b4_d = '0') then --B4 pressionado
-					AM_Slot2 <= estacao_variable_cont;
-				end if;
-			else --FM
-				if (b3_d = '0' AND b4_d = '1') then --B3 pressionado
-					FM_Slot1 <= estacao_variable_cont;
-				elsif (b3_d = '1' AND b4_d = '0') then --B4 pressionado
-					FM_Slot2 <= estacao_variable_cont;
-				end if;
-			end if;
-		end if;
-	end process;
-	
+	led3 <= NOT ena;
+
 	--Listando as estações favoritas quando b3_d e b4_d estão pressionados por 2s ou mais
 	tempo_pressionado_port : entity work.tempo_pressionado PORT MAP(clk => clk, btn1 => b3_d,btn2 => b4_d,res =>time_pressed);
 	
@@ -104,18 +86,34 @@ BEGIN
 	listagem_port : entity work.listar_estacoes PORT MAP(clk => clk,estacao_am_1 => AM_Slot1,estacao_am_2 => AM_Slot2,
 																		 estacao_fm_1 => FM_Slot1,estacao_fm_2 => FM_Slot2,tempo_pressionado => time_pressed,
 																		 modo => s1, estacao_selecionada => estacao_variable_list);
-					
 	
-	--estacao_saida <= std_logic_vector(to_unsigned(estacao_variable,estacao_saida'length));
 	
-	process(estacao_variable_cont,estacao_variable_list) is
-	begin
-		if(time_pressed = '0') then
-			estacao_variable <= estacao_variable_list;
-		else
-			estacao_variable <= estacao_variable_cont;
-		end if;	
-	end process;		
+	--cont : entity work.contador PORT MAP(clk => clk, s1 => s1, b3 => chave_b3,b4 => chave_b4,estacao => estacao_variable_cont,enable => ena);
+	cont : entity work.contador2 PORT MAP(clk => clk, s1 => s1, b3 => chave_b3,b4 => chave_b4,estacao_fav => estacao_variable_list,tempo_pressionado => time_pressed,enable => ena,estacao => estacao_variable);
+	
+	--Gravando as estações favoritas em variáveis
+	process(s2,s1,estacao_variable) is
+	begin		
+		if s2 = '0' then --Modo de gravação
+			if (s1 = '0') then --AM
+				if (b3_d = '0') then --B3 pressionado
+					AM_Slot1 <= estacao_variable;
+				elsif(b4_d = '0') then --B4 pressionado
+					AM_Slot2 <= estacao_variable;
+				end if;
+			else --FM
+				if (b3_d = '0') then --B3 pressionado
+					FM_Slot1 <= estacao_variable;
+				elsif (b4_d = '0') then --B4 pressionado
+					FM_Slot2 <= estacao_variable;
+				end if;
+			end if;
+		end if;
+	end process;
+	
+	--estacao_saida <= std_logic_vector(to_unsigned(estacao_variable,estacao_saida'length));	
+	
+	
 	
 	--Extraindo os dígitos do estacao_saida	
 	process(estacao_variable,aux4) is
@@ -144,19 +142,37 @@ BEGIN
 	--Tratando os dados antes de enviar ao LCD
 	process(aux4) is
 	begin
-		case aux4 is
-			when 0 => D4 <= X"30";
-			when 1 => D4 <= X"31";
-			when 2 => D4 <= X"32";
-			when 3 => D4 <= X"33";
-			when 4 => D4 <= X"34";
-			when 5 => D4 <= X"35";
-			when 6 => D4 <= X"36";
-			when 7 => D4 <= X"37";
-			when 8 => D4 <= X"38";
-			when 9 => D4 <= X"39";
-			when others => D4 <= X"40";
-		end case;
+		if s1 = '0' then --AM
+			case aux4 is
+				when 0 => D4 <= X"30";
+				when 1 => D4 <= X"31";
+				when 2 => D4 <= X"32";
+				when 3 => D4 <= X"33";
+				when 4 => D4 <= X"34";
+				when 5 => D4 <= X"35";
+				when 6 => D4 <= X"36";
+				when 7 => D4 <= X"37";
+				when 8 => D4 <= X"38";
+				when 9 => D4 <= X"39";
+				when others => D4 <= X"40";
+			end case;
+			D5 <= "00100000";
+		else
+			case aux4 is
+				when 0 => D5 <= X"30";
+				when 1 => D5 <= X"31";
+				when 2 => D5 <= X"32";
+				when 3 => D5 <= X"33";
+				when 4 => D5 <= X"34";
+				when 5 => D5 <= X"35";
+				when 6 => D5 <= X"36";
+				when 7 => D5 <= X"37";
+				when 8 => D5 <= X"38";
+				when 9 => D5 <= X"39";
+				when others => D4 <= X"40";				
+			end case;
+			D4 <= X"2E";
+		end if;
 	end process;
 	
 	process(aux3) is
@@ -214,10 +230,10 @@ BEGIN
 	begin
 		IF (s1 = '0') THEN --AM
 			S1_Modo <= X"41";
-			S1_Freq <= X"4B";
+			S1_Freq <= X"4B";			
 		ELSE
 			S1_Modo <= X"46";
-			S1_Freq <= X"4D";
+			S1_Freq <= X"4D";						
 		END IF;
 	end process;
 	
@@ -239,7 +255,7 @@ BEGIN
 	end process;
 	
 	--Mandando para o LCD
-	lcd_map : entity work.lcd(hardware) PORT MAP(clk => to_bit(clk), D1 => D1, D2 => D2,D3 => D3,D4 => D4,
+	lcd_map : entity work.lcd(hardware) PORT MAP(clk => to_bit(clk), D1 => D1, D2 => D2,D3 => D3,D4 => D4,D5 => D5,
 	M1 => M1, M2 => M2, M3 => M3, M4 => M4, M5 => M5,S1_Modo => S1_Modo,S1_Freq => S1_Freq,E => E_x,RS => RS_x,RW => RW_x,DB => DB_x);
 	
 	--Mandando para a saída

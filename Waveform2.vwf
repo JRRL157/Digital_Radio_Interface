@@ -7,10 +7,10 @@
 vlib work
 vcom -work work Digital_Radio_Interface.vho
 vcom -work work Waveform2.vwf.vht
-vsim  -c -t 1ps -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.divisor_clock_vhd_vec_tst
+vsim  -c -t 1ps -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.btn_key_vhd_vec_tst
 vcd file -direction Digital_Radio_Interface.msim.vcd
-vcd add -internal divisor_clock_vhd_vec_tst/*
-vcd add -internal divisor_clock_vhd_vec_tst/i1/*
+vcd add -internal btn_key_vhd_vec_tst/*
+vcd add -internal btn_key_vhd_vec_tst/i1/*
 proc simTimestamp {} {
     echo "Simulation time: $::now ps"
     if { [string equal running [runStatus]] } {
@@ -25,10 +25,10 @@ quit -f
 vlib work
 vcom -work work Digital_Radio_Interface.vho
 vcom -work work Waveform2.vwf.vht
-vsim -novopt -c -t 1ps -sdfmax divisor_clock_vhd_vec_tst/i1=Digital_Radio_Interface_vhd.sdo -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.divisor_clock_vhd_vec_tst
+vsim -novopt -c -t 1ps -sdfmax btn_key_vhd_vec_tst/i1=Digital_Radio_Interface_vhd.sdo -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.btn_key_vhd_vec_tst
 vcd file -direction Digital_Radio_Interface.msim.vcd
-vcd add -internal divisor_clock_vhd_vec_tst/*
-vcd add -internal divisor_clock_vhd_vec_tst/i1/*
+vcd add -internal btn_key_vhd_vec_tst/*
+vcd add -internal btn_key_vhd_vec_tst/i1/*
 proc simTimestamp {} {
     echo "Simulation time: $::now ps"
     if { [string equal running [runStatus]] } {
@@ -76,7 +76,7 @@ HEADER
 	GRID_DUTY_CYCLE = 50;
 }
 
-SIGNAL("clk")
+SIGNAL("btn")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
@@ -86,7 +86,7 @@ SIGNAL("clk")
 	PARENT = "";
 }
 
-SIGNAL("clock")
+SIGNAL("key")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
@@ -96,21 +96,22 @@ SIGNAL("clock")
 	PARENT = "";
 }
 
-TRANSITION_LIST("clk")
+TRANSITION_LIST("btn")
 {
 	NODE
 	{
 		REPEAT = 1;
 		NODE
 		{
-			REPEAT = 500;
-			LEVEL 0 FOR 1.0;
-			LEVEL 1 FOR 1.0;
+			REPEAT = 16;
+			LEVEL 0 FOR 48.0;
+			LEVEL 1 FOR 12.0;
 		}
+		LEVEL 0 FOR 40.0;
 	}
 }
 
-TRANSITION_LIST("clock")
+TRANSITION_LIST("key")
 {
 	NODE
 	{
@@ -121,7 +122,7 @@ TRANSITION_LIST("clock")
 
 DISPLAY_LINE
 {
-	CHANNEL = "clk";
+	CHANNEL = "btn";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 0;
@@ -130,7 +131,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "clock";
+	CHANNEL = "key";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 1;
